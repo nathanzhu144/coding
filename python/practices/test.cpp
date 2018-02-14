@@ -6,4 +6,6 @@ int main(){
     char c2 = 'D' - 1;
     char c3 = 'd' - ('a' - 'A');
     std::cout << c0 << c1 << c2 << c3;
+
+    //Hi I am a merge conflict
 }
