@@ -38,7 +38,7 @@ def match_ends(words):
 # before combining them.
 def front_x(words):
   returned_list = []
-  for word in range(0, words):
+  for word in words[:]:
     if word and word[0].lower() == 'x':
       words.remove(word)
       returned_list.append(word)
@@ -50,7 +50,9 @@ def front_x(words):
 
   return returned_list
 
-
+# for sort_last function
+def last(a):
+  return a[-1]
 
 # C. sort_last
 # Given a list of non-empty tuples, return a list sorted in increasing
@@ -59,8 +61,7 @@ def front_x(words):
 # [(2, 2), (1, 3), (3, 4, 5), (1, 7)]
 # Hint: use a custom key= function to extract the last element form each tuple.
 def sort_last(tuples):
-  # +++your code here+++
-  return
+  return sorted(tuples, key=last)
 
 
 # Simple provided test() function used in main() to print
