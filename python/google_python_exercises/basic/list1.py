@@ -30,15 +30,25 @@ def match_ends(words):
 
 
 # B. front_x
-# Given a list of strings, return a lis)t with the strings
+# Given a list of strings, return a list with the strings
 # in sorted order, except group all the strings that begin with 'x' first.
 # e.g. ['mix', 'xyz', 'apple', 'xanadu', 'aardvark'] yields
 # ['xanadu', 'xyz', 'aardvark', 'apple', 'mix']
 # Hint: this can be done by making 2 lists and sorting each of them
 # before combining them.
 def front_x(words):
-  # +++your code here+++
-  return
+  returned_list = []
+  for word in range(0, words):
+    if word and word[0].lower() == 'x':
+      words.remove(word)
+      returned_list.append(word)
+
+  returned_list.sort()
+  words.sort()
+
+  returned_list.extend(words)
+
+  return returned_list
 
 
 
@@ -66,7 +76,7 @@ def test(got, expected):
 # Calls the above functions with interesting inputs.
 def main():
   print 'match_ends'
-  test(match_ends(['aba', 'xyz', 'aa', 'x', 'bbb']), 3)
+  test(match_ends(['aba', 'xyz', 'aa', 'x', 'bbb', '']), 3)
   test(match_ends(['', 'x', 'xy', 'xyx', 'xx']), 2)
   test(match_ends(['aaa', 'be', 'abc', 'hello']), 1)
   test(match_ends(['aaaA', 'aa']), 2)
