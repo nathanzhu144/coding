@@ -22,17 +22,15 @@
 # Note: python does not have a ++ operator, but += works.
 def match_ends(words):
   match_counter = 0
-  for word_num in range(0, len(words))
-    if len(words[word_num]) <= 2
-      if words[word_num].lower() == words[len(word_num) - 1].lower()
-      counter += 1
+  for word in words:
+    if len(word) >= 2 and word[0].lower() == word[-1].lower():
+      match_counter += 1
 
-  
-  return
+  return match_counter
 
 
 # B. front_x
-# Given a list of strings, return a list with the strings
+# Given a list of strings, return a lis)t with the strings
 # in sorted order, except group all the strings that begin with 'x' first.
 # e.g. ['mix', 'xyz', 'apple', 'xanadu', 'aardvark'] yields
 # ['xanadu', 'xyz', 'aardvark', 'apple', 'mix']
@@ -71,6 +69,7 @@ def main():
   test(match_ends(['aba', 'xyz', 'aa', 'x', 'bbb']), 3)
   test(match_ends(['', 'x', 'xy', 'xyx', 'xx']), 2)
   test(match_ends(['aaa', 'be', 'abc', 'hello']), 1)
+  test(match_ends(['aaaA', 'aa']), 2)
 
   print
   print 'front_x'
