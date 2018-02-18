@@ -80,11 +80,20 @@ class Player:
     def play_card(self):
         return self.hand.pop()
 
-    def win_play(self, won_card):
+    def win_play(self, won_cards):
         self.hand.append(won_card)
+
+    def cannot_wage_war(self):
+        if (len(self.hand) >= 4):
+            return False
+        else:
+            return True
 
     def win_war(self, won_cards):
         self.hand.append(deque(won_cards))
+
+    def has_lost_round(self):
+        return not self.hand
         
 
 
