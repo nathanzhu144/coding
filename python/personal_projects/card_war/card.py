@@ -29,9 +29,24 @@ class Card:
         return card_rank_to_string(self.rank) + ' of ' + self.suit
 
     def __lt__(self, other):
-        pass
+        if self.rank < other.rank:
+            return True
+        else:
+            return False
 
+    def __gt__(self, other):
+        if self.rank > other.rank:
+            return True
+        else:
+            return False
+    
+    def __eq__(self, other):
+        if self.rank == other.rank:
+            return True
+        else:
+            return False
 
+    
 
 
 class Deck(Card):
@@ -45,6 +60,17 @@ class Deck(Card):
             for card_index, rank in enumerate(self.ranks):
                 self.card_list.append(Card(suit, rank))
 
+    def __bool__(self):
+        if card_list:
+            return True
+        else:
+            return False
+
+
+    #@property
+    #def card_list()
+
+
     
     def shuffle(self):
         unshuffled_list = self.card_list
@@ -56,7 +82,14 @@ class Deck(Card):
 
 
 def main():  
-    #c1 = Card("Spades", 14)
+    c1 = Card("Spades", 14)
+    c2 = Card("Spades", 13)
+
+    if c1 < c2:
+        print("yes")
+    if c1 > c2:
+        print("no")
+    
     #print(c1)
     deck1 = Deck()
     for i in deck1.card_list:
@@ -66,6 +99,8 @@ def main():
     deck1.shuffle()
     for i in deck1.card_list:
         print i
+
+
 
 if __name__ == '__main__':
     main()
