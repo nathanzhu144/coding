@@ -39,7 +39,7 @@ def both_ends(s):
   if len(s) <= 2:
     return ''
   else: 
-    return s[0:1] + s[-1,-2]
+    return s[0:2] + s[-2:]
   
 
 # C. fix_start
@@ -52,8 +52,10 @@ def both_ends(s):
 # Hint: s.replace(stra, strb) returns a version of string s
 # where all instances of stra have been replaced by strb.
 def fix_start(s):
-  # +++your code here+++
-  return
+  for index, indexed_val in enumerate(s):
+    if indexed_value == s[0]:
+      s[index] = '*'
+  return s
 
 
 # D. MixUp
