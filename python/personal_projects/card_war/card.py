@@ -1,6 +1,6 @@
 # 2/18/2018 1:25 am znathan Nathan Zhu
 # creating a basic framework for a card class
-
+from collections import deque
 import random
 
 # Helper functions
@@ -46,11 +46,9 @@ class Card:
         else:
             return False
 
-    
 
 
 class Deck(Card):
-
     suits = ['Spades', 'Hearts', 'Diamonds', 'Clubs']
     ranks = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
 
@@ -66,11 +64,6 @@ class Deck(Card):
         else:
             return False
 
-
-    #@property
-    #def card_list()
-
-
     
     def shuffle(self):
         unshuffled_list = self.card_list
@@ -80,16 +73,32 @@ class Deck(Card):
         self.card_list = shuffled_list
 
 
+class Player: 
+    def __init__(self, starting_hand):
+        self.hand = deque(starting_hand)
+
+    def play_card(self):
+        return self.hand.pop()
+
+    def win_play(self, won_cards):
+        self.hand.append(won_card)
+
+    def cannot_wage_war(self):
+        if (len(self.hand) >= 4):
+            return False
+        else:
+            return True
+
+    def win_war(self, won_cards):
+        self.hand.append(deque(won_cards))
+
+    def has_lost_round(self):
+        return not self.hand
+        
+
 
 def main():  
-    c1 = Card("Spades", 14)
-    c2 = Card("Spades", 13)
-
-    if c1 < c2:
-        print("yes")
-    if c1 > c2:
-        print("no")
-    
+    #c1 = Card("Spades", 14)
     #print(c1)
     deck1 = Deck()
     for i in deck1.card_list:
@@ -98,9 +107,11 @@ def main():
 
     deck1.shuffle()
     for i in deck1.card_list:
-        print i
+        pass
+        #print i
 
-
+    p1 = Player(deck1.card_list)
+    p1.print_hand()
 
 if __name__ == '__main__':
     main()
