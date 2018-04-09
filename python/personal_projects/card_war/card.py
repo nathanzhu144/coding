@@ -1,4 +1,4 @@
-# 2/18/2018 1:25 am znathan Nathan Zhu
+
 # creating a basic framework for a card class
 from collections import deque
 import random
@@ -98,20 +98,42 @@ class Player:
 
 
 def main():  
-    #c1 = Card("Spades", 14)
-    #print(c1)
+    print('Testing overloaded card printing for suit')
+    print('-------------------------------------------')
+    c1 = Card("Spades", 14)
+    c2 = Card("Hearts", 13)
+    c3 = Card("Hearts", 12)
+    c4 = Card("Hearts", 11)
+    c5 = Card("Hearts", 10)
+    c6 = Card("Hearts", 9)
+    c7 = Card("Hearts", 8)
+
+    print(c1)
+    print(c2)
+    print(c3)
+    print(c4)
+    print(c5)
+    print(c6)
+    print(c7)
+    print()
+    
+    print('Testing deck generation')
+    print('-------------------------')
     deck1 = Deck()
     for i in deck1.card_list:
-        pass
-       # print i
+        print(i)
+    print()
 
+
+    print('Testing deck shuffle')
+    print('-------------------------')
     deck1.shuffle()
     for i in deck1.card_list:
-        pass
-        #print i
+        print(i)
+    print()
 
     p1 = Player(deck1.card_list)
-    p1.print_hand()
+    #p1.print_hand()
 
 if __name__ == '__main__':
     main()
