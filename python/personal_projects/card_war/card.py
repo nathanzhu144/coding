@@ -18,6 +18,7 @@ def card_rank_to_string(rank):
         return 'Ace'
     else:
         return str(rank)
+        
 
 class Card:
     def __init__(self, suit, rank):
