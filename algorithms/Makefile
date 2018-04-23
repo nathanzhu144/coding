@@ -8,5 +8,10 @@ index_extra_array_element: index_extra_array_element.o
 stock_span: stock_span.o
 	$(CXX) $(CXXFLAGS) stock_span.cpp -o stock_span.exe
 
+factorial: factorial.o
+	$(CXX) $(CXXFLAGS) factorial.cpp -o factorial.exe
+
+badfactorial: badfactorial.o
+	$(CXX) $(CXXFLAGS) badfactorial.cpp -o badfactorial.exe
 clean:
 	rm *.exe *.o
