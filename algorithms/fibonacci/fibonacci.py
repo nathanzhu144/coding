@@ -13,7 +13,7 @@ def fibonacci(num):
 
 
 def main():
-    print(fibonacci(100000))
+    print(fibonacci(500000))
 
 if __name__ == "__main__":
     main()
