@@ -8,5 +8,8 @@ index_extra_array_element: index_extra_array_element.o
 stock_span: stock_span.o
 	$(CXX) $(CXXFLAGS) stock_span.cpp -o stock_span.exe
 
+nqueens: nqueens.o
+	$(CXX) $(CXXFLAGS) nqueens.cpp -o nqueens.exe
+
 clean:
 	rm *.exe *.o
