@@ -1,4 +1,5 @@
 #include <iostream>
+<<<<<<< HEAD
 #include <utility>            //for std::pair
 
 //Number of rows and cols of board
@@ -9,13 +10,30 @@ const int NUM_MOVES = 8;
 
 int row_change[NUM_MOVES] = {2, 1, -1, -2, -2, -1, 1, 2};
 int col_change[NUM_MOVES] = {1, 2, 2, 1, -1, -2, -2, -1};
+=======
+
+//Number of rows and cols of board
+const int NUM_ROWS = 8;
+const int NUM_COLS = 8;
+
+//All possible moves of a knight on a chessboard
+// int row_change[8] = {2, 1, -1, -2, -2, -1, 1, 2};
+// int col_change[8] = {1, 2, 2, 1, -1, -2, -2, -1};
+
+int row_change[8] = {2, 1, -1, -2, -2, -1, 1, 2};
+int col_change[8] = {1, 2, 2, 1, -1, -2, -2, -1};
+>>>>>>> 7fceab19f267a9b884d14e2eeca4495ba2ebd6c7
 
 //Board setup functions//
 
 //Requires: Nothing.
 //Modifies: Nothing
 //Effects:  Prints board.
+<<<<<<< HEAD
 void print_board(int board[NUM_ROWS][NUM_COLS]);
+=======
+void print_board(const int board[NUM_ROWS][NUM_COLS]);
+>>>>>>> 7fceab19f267a9b884d14e2eeca4495ba2ebd6c7
 
 //Requires: Nothing.
 //Modifies: board
@@ -29,6 +47,7 @@ void initialize_board(int board[NUM_ROWS][NUM_COLS]);
 //          Returns false if either is true.
 bool is_move_good(int row, int col, int board[NUM_ROWS][NUM_COLS]);
 
+<<<<<<< HEAD
 //Requires: Nothing.
 //Modifies: Nothing.
 //Effects:  Finds the degree of a node.  Degree is defined as number of possible
@@ -59,6 +78,9 @@ std::pair<int, int> next_move(int row, int col, int board[NUM_ROWS][NUM_COLS]){
     }
 
 }
+=======
+
+>>>>>>> 7fceab19f267a9b884d14e2eeca4495ba2ebd6c7
 
 void kt(int row, int col, int board[NUM_ROWS][NUM_COLS]);
 
@@ -116,6 +138,16 @@ bool is_move_good(int row, int col, int board[NUM_ROWS][NUM_COLS])
     return (row >= 0 && row < NUM_ROWS && col >= 0 && col < NUM_COLS && board[row][col] == -1);
 }
 
+<<<<<<< HEAD
+=======
+//Requires: is_move_good is true
+//Modifies: board
+//Effects:  Makes a move on the board as specified by the row and col numbers.
+void make_move(int row, int col, int num_moves_made_already, int board[NUM_ROWS][NUM_COLS])
+{
+    board[row][col] = num_moves_made_already;
+}
+>>>>>>> 7fceab19f267a9b884d14e2eeca4495ba2ebd6c7
 
 void kt(int row, int col, int board[NUM_ROWS][NUM_COLS])
 {
