@@ -6,9 +6,13 @@
 #include <stdio.h>      // for printf
 
 //Number of rows and cols of board
-const int NUM_ROWS = 4;
-const int NUM_COLS = 6;
+const int MAX_NUM_ROWS = 210;
+const int MAX_NUM_COLS = 210;
 const int NUM_MOVES = 8;
+static int board_row_size;
+static int board_col_size;
+static int starting_row;
+static int starting_col;
 
 static int row_change[NUM_MOVES] = {2, 1, -1, -2, -2, -1, 1, 2};
 static int col_change[NUM_MOVES] = {1, 2, 2, 1, -1, -2, -2, -1};
@@ -19,12 +23,12 @@ static int col_change[NUM_MOVES] = {1, 2, 2, 1, -1, -2, -2, -1};
 //Requires: Nothing.
 //Modifies: Nothing
 //Effects:  Prints board.
-void print_board(const int board[NUM_ROWS][NUM_COLS]);
+void print_board(const int board[MAX_NUM_ROWS][MAX_NUM_COLS]);
 
 //Requires: Nothing.
 //Modifies: board
 //Effects:  Sets all indices of board to -1
-void initialize_board(int board[NUM_ROWS][NUM_COLS]);
+void initialize_board(int board[MAX_NUM_ROWS][MAX_NUM_COLS]);
 
 
 //Misc helper functions//
@@ -33,19 +37,19 @@ void initialize_board(int board[NUM_ROWS][NUM_COLS]);
 //Modifies: Nothing.
 //Effects:  Checks if a location is off the board or already has been used before.
 //          Returns false if either is true.
-bool is_move_good(int row, int col, int board[NUM_ROWS][NUM_COLS]);
+bool is_move_good(int row, int col, int board[MAX_NUM_ROWS][MAX_NUM_COLS]);
 
 //Requires: Nothing.
 //Modifies: Nothing.
 //Effects:  Finds the degree of a node.  Degree is defined as number of possible
 //          moves that a chess piece can make.
-int find_degree_of_node(int row, int col, int board[NUM_ROWS][NUM_COLS]);
+int find_degree_of_node(int row, int col, int board[MAX_NUM_ROWS][MAX_NUM_COLS]);
 
 //Requires: Nothing.
 //Modifies: Nothing.
 //Effects:  If move is good, makes a move on that square, marking it with the number
 //          of moves done.
-void make_move(int row, int col, int num, int board[NUM_ROWS][NUM_COLS]);
+void make_move(int row, int col, int num, int board[MAX_NUM_ROWS][MAX_NUM_COLS]);
 
 
 //Requires: Nothing.
@@ -60,9 +64,39 @@ void make_move(int row, int col, int num, int board[NUM_ROWS][NUM_COLS]);
 //Note:     This uses the Warnsdorff's heurstic.  It chooses the next open position
 //          with the fewest number of moves from that position.
 
-std::vector<std::pair<int, std::pair<int, int> > > possible_moves(int row, int col, int board[NUM_ROWS][NUM_COLS]);
+std::vector<std::pair<int, std::pair<int, int> > > possible_moves(int row, int col, int board[MAX_NUM_ROWS][MAX_NUM_COLS]);
 
-void kt(int row, int col, int board[NUM_ROWS][NUM_COLS]);
 
-bool kt_utility(int row, int col, int num_moves_made_already, int board[NUM_ROWS][NUM_COLS]);
+
+//Requires: All squares to be moved on except for one.
+//Modifies: Nothing.
+//Effects:  Finds last move in the form std::pair(int row, int col).  Since possible_moves returns 
+//          an empty vector on the last move before completing a board, as the last move will be to a 
+//          position of degree 0.
+//
+//          Returns -1, -1 if cannot find a solution.  i.e. knight cannot move to any spaces.
+//
+
+std::pair<int, int> last_move(int row, int col, int board[MAX_NUM_ROWS][MAX_NUM_COLS]);
+
+
+//Menu functions//
+
+
+//Requires: valid numerical input
+//          input for starting position has to be in bounds
+//Modifies: 
+//          static int board_row_size;
+//          static int board_col_size;
+//          static int starting_row;
+//          static int starting_col;
+//Effects:  Returns a pair (int row, int col) representing starting position of first move.
+
+
+std::pair<int, int> board_choice();
+
+void kt(int row, int col, int board[MAX_NUM_ROWS][MAX_NUM_COLS]);
+
+bool kt_utility(int row, int col, int num_moves_made_already, int board[MAX_NUM_ROWS][MAX_NUM_COLS]);
+
 
