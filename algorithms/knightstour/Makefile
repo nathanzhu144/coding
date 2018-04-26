@@ -1,15 +1,14 @@
 
 CXX = g++
-CXXFLAGS = -g -o0 --std=c++11 -Wall -Werror
+CXXFLAGS = -g -o0 --std=c++11
+main: knightstour.o knightstour_main.o
+	$(CXX) $(CXXFLAGS) knightstour.cpp knightstour_main.cpp -o knightstour_main.exe
 
-knightstour: knightstour.o
-	$(CXX) $(CXXFLAGS) knightstour.cpp -o knightstour.exe
+test: knightstour.o knightstour_test.o
+	$(CXX) $(CXXFLAGS) knightstour.cpp knightstour_test.cpp -o knightstour_test.exe
 
-<<<<<<< HEAD
 mod_knightstour: knightstour_mod.o
 	$(CXX) $(CXXFLAGS) knightstour_mod.cpp -o knightstour_mod.exe
 
-=======
->>>>>>> 7fceab19f267a9b884d14e2eeca4495ba2ebd6c7
 clean:
 	rm -rf *.exe *.o
