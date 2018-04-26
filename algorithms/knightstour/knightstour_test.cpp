@@ -146,6 +146,8 @@ void test_next_move()
     }
 
     std::cout << std::endl;
+
+    print_board(b5);
 }
 
 int main()

@@ -76,12 +76,11 @@ void make_move(int row, int col, int num, int board[NUM_ROWS][NUM_COLS])
 
 //Board solver functions//
 
-
 //Requires: Nothing.
 //Modifies: Nothing.
-//Effects:  Returns a vector of pairs<int, std::pair<int, int > > of possible 
+//Effects:  Returns a vector of pairs<int, std::pair<int, int > > of possible
 //          moves in form of (degree, coordinate).
-//          Does not include moves to a node with 0 degrees.  
+//          Does not include moves to a node with 0 degrees.
 //
 //          first = degree after a move
 //          second = move position in std::pair(int row, int col)
@@ -111,7 +110,7 @@ std::vector<std::pair<int, std::pair<int, int>>> possible_moves(int row, int col
 
 void kt(int row, int col, int board[NUM_ROWS][NUM_COLS])
 {
-    board[0][0] = 0;
+    board[row][col] = 0;
 
     if (kt_utility(row, col, 0, board))
     {
@@ -126,34 +125,32 @@ void kt(int row, int col, int board[NUM_ROWS][NUM_COLS])
 bool kt_utility(int row, int col, int num_moves_made_already, int board[NUM_ROWS][NUM_COLS])
 {
     //Finished filling whole board.
-    if (num_moves_made_already >= NUM_COLS * NUM_ROWS)
+    if (num_moves_made_already >= NUM_COLS * NUM_ROWS - 2)
     {
         return true;
     }
 
-    std::vector<std::pair<int, std::pair<int, int> > > possible_next_moves = possible_moves(row, col, board);
     std::vector<std::pair<int, int> > possible_next_moves;
-    for(const auto &i : possible_next_moves){
 
+    for (const std::pair<int, std::pair<int, int> > &i : possible_moves(row, col, board))
+    {
+        possible_next_moves.push_back(i.second);
     }
 
-    //Tests out all 8 configurations for knight move
-    for (int i = 0; i < 8; ++i)
+    //Makes all knight moves in an order sorted by an increasing degree.
+    for (auto i = possible_next_moves.begin(); i != possible_next_moves.end(); ++i)
     {
-        int new_row = row_change[i] + row;
-        int new_col = col_change[i] + col;
-        if (is_move_good(new_row, new_col, board))
-        {
-            board[new_row][new_col] = num_moves_made_already + 1;
+        board[i->first][i->second] = num_moves_made_already + 1;
 
-            if (kt_utility(new_row, new_col, num_moves_made_already + 1, board))
-            {
-                return true;
-            }
-            else
-            {
-                board[new_row][new_col] = -1;
-            }
+        //If move later results in a successful knights tour
+        if (kt_utility(i->first, i->second, num_moves_made_already + 1, board))
+        {
+            return true;
+        }
+        //If move later does not result in a successful knights tour
+        else
+        {
+            board[i->first][i->second] = -1;
         }
     }
 

@@ -3,13 +3,11 @@
 #include <algorithm>    //for std::sort
 #include <vector>       //for std::vector
 #include <map>          //for std::map
-#include <stdlib.h>     // srand, rand
-#include <time.h>       // time 
 #include <stdio.h>      // for printf
 
 //Number of rows and cols of board
-const int NUM_ROWS = 8;
-const int NUM_COLS = 8;
+const int NUM_ROWS = 4;
+const int NUM_COLS = 6;
 const int NUM_MOVES = 8;
 
 static int row_change[NUM_MOVES] = {2, 1, -1, -2, -2, -1, 1, 2};
@@ -21,7 +19,7 @@ static int col_change[NUM_MOVES] = {1, 2, 2, 1, -1, -2, -2, -1};
 //Requires: Nothing.
 //Modifies: Nothing
 //Effects:  Prints board.
-void print_board(int board[NUM_ROWS][NUM_COLS]);
+void print_board(const int board[NUM_ROWS][NUM_COLS]);
 
 //Requires: Nothing.
 //Modifies: board
@@ -59,7 +57,7 @@ void make_move(int row, int col, int num, int board[NUM_ROWS][NUM_COLS]);
 //          first = degree after a move
 //          second = move position in std::pair(int row, int col)
 //
-//Note:     This uses the Warnsdorf's heurstic.  It chooses the next open position
+//Note:     This uses the Warnsdorff's heurstic.  It chooses the next open position
 //          with the fewest number of moves from that position.
 
 std::vector<std::pair<int, std::pair<int, int> > > possible_moves(int row, int col, int board[NUM_ROWS][NUM_COLS]);
