@@ -1,6 +1,8 @@
 #include <iostream>
 #include <utility>      //for std::pair
+#include <algorithm>    //for std::sort
 #include <vector>       //for std::vector
+#include <map>          //for std::map
 #include <stdlib.h>     // srand, rand
 #include <time.h>       // time 
 #include <stdio.h>      // for printf
@@ -26,6 +28,9 @@ void print_board(int board[NUM_ROWS][NUM_COLS]);
 //Effects:  Sets all indices of board to -1
 void initialize_board(int board[NUM_ROWS][NUM_COLS]);
 
+
+//Misc helper functions//
+
 //Requires: Nothing.
 //Modifies: Nothing.
 //Effects:  Checks if a location is off the board or already has been used before.
@@ -38,24 +43,28 @@ bool is_move_good(int row, int col, int board[NUM_ROWS][NUM_COLS]);
 //          moves that a chess piece can make.
 int find_degree_of_node(int row, int col, int board[NUM_ROWS][NUM_COLS]);
 
-
-//Requires: Degree of node is not zero.
+//Requires: Nothing.
 //Modifies: Nothing.
-//Effects:  Returns -1, -1 in std::pair if every possible move is a move to
-//          a node with 0 degrees.
+//Effects:  If move is good, makes a move on that square, marking it with the number
+//          of moves done.
+void make_move(int row, int col, int num, int board[NUM_ROWS][NUM_COLS]);
+
+
+//Requires: Nothing.
+//Modifies: Nothing.
+//Effects:  Returns a vector of pairs<int, std::pair<int, int > > of possible 
+//          moves in form of (degree, coordinate).
+//          Does not include moves to a node with 0 degrees.  
 //
-//          Otherwise returns next optimal move to make.
-//
-//          If there is a tie, it should choose a random move of the optimal moves
-//          in the form (row, col)
+//          first = degree after a move
+//          second = move position in std::pair(int row, int col)
 //
 //Note:     This uses the Warnsdorf's heurstic.  It chooses the next open position
 //          with the fewest number of moves from that position.
 
-std::pair<int, int> next_move(int row, int col, int board[NUM_ROWS][NUM_COLS]);
+std::vector<std::pair<int, std::pair<int, int> > > possible_moves(int row, int col, int board[NUM_ROWS][NUM_COLS]);
 
+void kt(int row, int col, int board[NUM_ROWS][NUM_COLS]);
 
-// void kt(int row, int col, int board[NUM_ROWS][NUM_COLS]);
-
-// bool kt_utility(int row, int col, int num_moves_made_already, int board[NUM_ROWS][NUM_COLS]);
+bool kt_utility(int row, int col, int num_moves_made_already, int board[NUM_ROWS][NUM_COLS]);
 

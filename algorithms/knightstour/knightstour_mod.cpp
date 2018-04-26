@@ -99,7 +99,7 @@ bool neighbour(int x, int y, int xx, int yy)
  
     return false;
 }
- hhh
+
 /* Generates the legal moves using warnsdorff's
   heuristics. Returns false if not possible */
 bool findClosedTour()
