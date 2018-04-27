@@ -1,8 +1,10 @@
 #include <iostream>
+#include <string>       //for std::string
 #include <utility>      //for std::pair
 #include <algorithm>    //for std::sort
 #include <vector>       //for std::vector
 #include <map>          //for std::map
+#include <fstream>      //for std::ofstream
 #include <stdio.h>      // for printf
 
 //Number of rows and cols of board
@@ -20,10 +22,6 @@ static int col_change[NUM_MOVES] = {1, 2, 2, 1, -1, -2, -2, -1};
 
 //Board setup functions//
 
-//Requires: Nothing.
-//Modifies: Nothing
-//Effects:  Prints board.
-void print_board(const int board[MAX_NUM_ROWS][MAX_NUM_COLS]);
 
 //Requires: Nothing.
 //Modifies: board
@@ -83,6 +81,21 @@ std::pair<int, int> last_move(int row, int col, int board[MAX_NUM_ROWS][MAX_NUM_
 //Menu functions//
 
 
+//Requires: Nothing.
+//Modifies: Nothing
+//Effects:  Prints board in standard output to terminal.
+void print_board(const int board[MAX_NUM_ROWS][MAX_NUM_COLS]);
+
+
+//Requires: Nothing.
+//Modifies: Nothing
+//
+//Effects:  Prints board in to file.  Overwrites file if it exists already.  If append flag is true
+//          append to the file.  Otherwise, write over original file.
+//
+void print_board_to_file(std::string file_name_in, bool append, const int board[MAX_NUM_ROWS][MAX_NUM_COLS]);
+
+
 //Requires: valid numerical input
 //          input for starting position has to be in bounds
 //Modifies: 
@@ -91,7 +104,6 @@ std::pair<int, int> last_move(int row, int col, int board[MAX_NUM_ROWS][MAX_NUM_
 //          static int starting_row;
 //          static int starting_col;
 //Effects:  Returns a pair (int row, int col) representing starting position of first move.
-
 
 std::pair<int, int> board_choice();
 

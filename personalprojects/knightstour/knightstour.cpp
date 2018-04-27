@@ -2,20 +2,6 @@
 
 //  Board setup functions  //
 
-//Requires: Nothing.
-//Modifies: Nothing
-//Effects:  Prints board.
-void print_board(const int board[MAX_NUM_ROWS][MAX_NUM_COLS])
-{
-    for (int r = 0; r < board_row_size; ++r)
-    {
-        for (int c = 0; c < board_col_size; ++c)
-        {
-            printf(" %4d ", board[r][c]);
-        }
-        std::cout << std::endl;
-    }
-}
 
 //Requires: Nothing.
 //Modifies: board
@@ -194,6 +180,60 @@ bool kt_utility(int row, int col, int num_moves_made_already, int board[MAX_NUM_
 
 
 //Menu functions//
+
+//Requires: Nothing.
+//Modifies: Nothing
+//Effects:  Prints board.
+void print_board(const int board[MAX_NUM_ROWS][MAX_NUM_COLS])
+{
+    for (int r = 0; r < board_row_size; ++r)
+    {
+        for (int c = 0; c < board_col_size; ++c)
+        {
+            printf(" %4d ", board[r][c]);
+        }
+        std::cout << std::endl;
+    }
+}
+
+//Requires: Nothing.
+//Modifies: Nothing
+//
+//Effects:  Prints board in to file.  Overwrites file if it exists already.  If append flag is true
+//          append to the file.  Otherwise, write over original file.
+//
+
+void print_board_to_file(std::string file_name_in, bool append, const int board[MAX_NUM_ROWS][MAX_NUM_COLS]){
+    FILE *f;
+    if(append){
+        f = fopen(file_name_in.c_str(), "a"); 
+    }else{
+        f = fopen(file_name_in.c_str(), "w+");
+    }
+
+    fprintf(f, "\n");
+    fprintf(f, "board size %i x %i\n", board_row_size, board_col_size);
+    fprintf(f, "starting from row %i col %i\n", starting_row, starting_col);
+    fprintf(f, "\n");
+
+    for (int r = 0; r < board_row_size; ++r)
+    {
+        for (int c = 0; c < board_col_size; ++c)
+        {
+            fprintf(f, " %4d ", board[r][c]);
+        }
+        fprintf(f, "\n");
+    }
+
+    fprintf(f, "\n");
+    fprintf(f, "\n");
+    fprintf(f, "\n");
+    fprintf(f, "\n");
+
+    fclose(f);
+    
+}
+
 
 std::pair<int, int> board_choice()
 {
