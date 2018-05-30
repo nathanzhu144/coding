@@ -1,0 +1,970 @@
+
+post-prompt
+
+breakpoints-headers
+
+field 0
+Num     
+field 1
+Type           
+field 2
+Disp 
+field 3
+Enb 
+field 4
+Address            
+field 5
+What
+
+breakpoints-table
+
+record
+
+field 0
+2       
+field 1
+breakpoint     
+field 2
+keep 
+field 3
+y   
+field 4
+0x0000000000400866 
+field 5
+in main() at helloworld.cpp:5
+
+breakpoints-table-end
+
+post-prompt
+rax            0x400846	4196422
+rbx            0x0	0
+rcx            0xc0	192
+rdx            0x7fffffffdef8	140737488346872
+rsi            0x7fffffffdee8	140737488346856
+rdi            0x1	1
+rbp            0x7fffffffde00	0x7fffffffde00
+rsp            0x7fffffffde00	0x7fffffffde00
+r8             0x7ffff7dd4ac0	140737351862976
+r9             0x7ffff7dc9780	140737351817088
+r10            0x32f	815
+r11            0x7ffff76c5280	140737344459392
+r12            0x400750	4196176
+r13            0x7fffffffdee0	140737488346848
+r14            0x0	0
+r15            0x0	0
+rip            0x40084a	0x40084a <main()+4>
+eflags         0x246	[ PF ZF IF ]
+cs             0x33	51
+ss             0x2b	43
+ds             0x0	0
+es             0x0	0
+fs             0x0	0
+gs             0x0	0
+
+post-prompt
+
+breakpoints-headers
+
+field 0
+Num     
+field 1
+Type           
+field 2
+Disp 
+field 3
+Enb 
+field 4
+Address            
+field 5
+What
+
+breakpoints-table
+
+record
+
+field 0
+2       
+field 1
+breakpoint     
+field 2
+keep 
+field 3
+y   
+field 4
+0x0000000000400866 
+field 5
+in main() at helloworld.cpp:5
+
+breakpoints-table-end
+
+post-prompt
+
+post-prompt
+
+breakpoints-headers
+
+field 0
+Num     
+field 1
+Type           
+field 2
+Disp 
+field 3
+Enb 
+field 4
+Address            
+field 5
+What
+
+breakpoints-table
+
+record
+
+field 0
+2       
+field 1
+breakpoint     
+field 2
+keep 
+field 3
+y   
+field 4
+0x0000000000400866 
+field 5
+in main() at helloworld.cpp:5
+
+breakpoints-table-end
+
+post-prompt
+
+post-query
+
+frames-invalid
+`/home/znathan/coding/x86/helloworld.exe' has changed; re-reading symbols.
+
+breakpoints-invalid
+Temporary breakpoint 3 at 0x4006ba: file helloworld.cpp, line 4.
+Starting program: /home/znathan/coding/x86/helloworld.exe 
+
+starting
+
+frames-invalid
+
+breakpoints-invalid
+
+breakpoint 3
+
+Temporary breakpoint 3, 
+frame-begin 0 0x4006ba
+
+frame-function-name
+main
+frame-args
+ ()
+frame-source-begin
+ at 
+frame-source-file
+helloworld.cpp
+frame-source-file-end
+:
+frame-source-line
+4
+frame-source-end
+
+
+source /home/znathan/coding/x86/helloworld.cpp:4:33:beg:0x4006ba
+
+frame-end
+
+stopped
+
+breakpoints-invalid
+
+post-prompt
+Current source file is helloworld.cpp
+Compilation directory is /home/znathan/coding/x86
+Located in /home/znathan/coding/x86/helloworld.cpp
+Contains 7 lines.
+Source language is c++.
+Producer is GNU C++11 5.4.0 20160609 -mtune=generic -march=x86-64 -g -std=c++11 -fstack-protector-strong.
+Compiled with DWARF 2 debugging format.
+Does not include preprocessor macro info.
+
+post-prompt
+
+breakpoints-headers
+
+field 0
+Num     
+field 1
+Type           
+field 2
+Disp 
+field 3
+Enb 
+field 4
+Address            
+field 5
+What
+
+breakpoints-table
+
+record
+
+field 0
+2       
+field 1
+breakpoint     
+field 2
+keep 
+field 3
+y   
+field 4
+0x00000000004006c1 
+field 5
+in main() at helloworld.cpp:5
+
+breakpoints-table-end
+
+post-prompt
+Dump of assembler code for function main():
+   0x00000000004006b6 <+0>:	push   %rbp
+   0x00000000004006b7 <+1>:	mov    %rsp,%rbp
+=> 0x00000000004006ba <+4>:	movl   $0x5,-0x8(%rbp)
+   0x00000000004006c1 <+11>:	mov    -0x8(%rbp),%eax
+   0x00000000004006c4 <+14>:	add    $0x6,%eax
+   0x00000000004006c7 <+17>:	mov    %eax,-0x4(%rbp)
+   0x00000000004006ca <+20>:	mov    $0x0,%eax
+   0x00000000004006cf <+25>:	pop    %rbp
+   0x00000000004006d0 <+26>:	retq   
+End of assembler dump.
+
+post-prompt
+
+breakpoints-headers
+
+field 0
+Num     
+field 1
+Type           
+field 2
+Disp 
+field 3
+Enb 
+field 4
+Address            
+field 5
+What
+
+breakpoints-table
+
+record
+
+field 0
+2       
+field 1
+breakpoint     
+field 2
+keep 
+field 3
+y   
+field 4
+0x00000000004006c1 
+field 5
+in main() at helloworld.cpp:5
+
+breakpoints-table-end
+
+post-prompt
+
+post-query
+
+frames-invalid
+Temporary breakpoint 4 at 0x4006ba: file helloworld.cpp, line 4.
+
+breakpoints-invalid
+Starting program: /home/znathan/coding/x86/helloworld.exe 
+
+starting
+
+frames-invalid
+
+breakpoints-invalid
+
+breakpoint 4
+
+Temporary breakpoint 4, 
+frame-begin 0 0x4006ba
+
+frame-function-name
+main
+frame-args
+ ()
+frame-source-begin
+ at 
+frame-source-file
+helloworld.cpp
+frame-source-file-end
+:
+frame-source-line
+4
+frame-source-end
+
+
+source /home/znathan/coding/x86/helloworld.cpp:4:33:beg:0x4006ba
+
+frame-end
+
+stopped
+
+breakpoints-invalid
+
+post-prompt
+Current source file is helloworld.cpp
+Compilation directory is /home/znathan/coding/x86
+Located in /home/znathan/coding/x86/helloworld.cpp
+Contains 7 lines.
+Source language is c++.
+Producer is GNU C++11 5.4.0 20160609 -mtune=generic -march=x86-64 -g -std=c++11 -fstack-protector-strong.
+Compiled with DWARF 2 debugging format.
+Does not include preprocessor macro info.
+
+post-prompt
+
+breakpoints-headers
+
+field 0
+Num     
+field 1
+Type           
+field 2
+Disp 
+field 3
+Enb 
+field 4
+Address            
+field 5
+What
+
+breakpoints-table
+
+record
+
+field 0
+2       
+field 1
+breakpoint     
+field 2
+keep 
+field 3
+y   
+field 4
+0x00000000004006c1 
+field 5
+in main() at helloworld.cpp:5
+
+breakpoints-table-end
+
+post-prompt
+
+post-prompt
+
+breakpoints-headers
+
+field 0
+Num     
+field 1
+Type           
+field 2
+Disp 
+field 3
+Enb 
+field 4
+Address            
+field 5
+What
+
+breakpoints-table
+
+record
+
+field 0
+2       
+field 1
+breakpoint     
+field 2
+keep 
+field 3
+y   
+field 4
+0x00000000004006c1 
+field 5
+in main() at helloworld.cpp:5
+
+breakpoints-table-end
+
+post-prompt
+
+post-query
+
+frames-invalid
+`/home/znathan/coding/x86/helloworld.exe' has changed; re-reading symbols.
+Temporary breakpoint 5 at 0x4006ba: file helloworld.cpp, line 4.
+
+breakpoints-invalid
+Starting program: /home/znathan/coding/x86/helloworld.exe 
+
+starting
+
+frames-invalid
+
+breakpoints-invalid
+
+breakpoint 5
+
+Temporary breakpoint 5, 
+frame-begin 0 0x4006ba
+
+frame-function-name
+main
+frame-args
+ ()
+frame-source-begin
+ at 
+frame-source-file
+helloworld.cpp
+frame-source-file-end
+:
+frame-source-line
+4
+frame-source-end
+
+
+source /home/znathan/coding/x86/helloworld.cpp:4:33:beg:0x4006ba
+
+frame-end
+
+stopped
+
+breakpoints-invalid
+
+post-prompt
+Current source file is helloworld.cpp
+Compilation directory is /home/znathan/coding/x86
+Located in /home/znathan/coding/x86/helloworld.cpp
+Contains 7 lines.
+Source language is c++.
+Producer is GNU C++11 5.4.0 20160609 -mtune=generic -march=x86-64 -g -O0 -std=c++11 -fstack-protector-strong.
+Compiled with DWARF 2 debugging format.
+Does not include preprocessor macro info.
+
+post-prompt
+
+breakpoints-headers
+
+field 0
+Num     
+field 1
+Type           
+field 2
+Disp 
+field 3
+Enb 
+field 4
+Address            
+field 5
+What
+
+breakpoints-table
+
+record
+
+field 0
+2       
+field 1
+breakpoint     
+field 2
+keep 
+field 3
+y   
+field 4
+0x00000000004006c1 
+field 5
+in main() at helloworld.cpp:5
+
+breakpoints-table-end
+
+post-prompt
+Dump of assembler code for function main():
+   0x00000000004006b6 <+0>:	push   %rbp
+   0x00000000004006b7 <+1>:	mov    %rsp,%rbp
+=> 0x00000000004006ba <+4>:	movl   $0x5,-0x8(%rbp)
+   0x00000000004006c1 <+11>:	mov    -0x8(%rbp),%eax
+   0x00000000004006c4 <+14>:	add    $0x6,%eax
+   0x00000000004006c7 <+17>:	mov    %eax,-0x4(%rbp)
+   0x00000000004006ca <+20>:	mov    $0x0,%eax
+   0x00000000004006cf <+25>:	pop    %rbp
+   0x00000000004006d0 <+26>:	retq   
+End of assembler dump.
+
+post-prompt
+
+breakpoints-headers
+
+field 0
+Num     
+field 1
+Type           
+field 2
+Disp 
+field 3
+Enb 
+field 4
+Address            
+field 5
+What
+
+breakpoints-table
+
+record
+
+field 0
+2       
+field 1
+breakpoint     
+field 2
+keep 
+field 3
+y   
+field 4
+0x00000000004006c1 
+field 5
+in main() at helloworld.cpp:5
+
+breakpoints-table-end
+
+post-prompt
+rax            0x4006b6	4196022
+rbx            0x0	0
+rcx            0xc0	192
+rdx            0x7fffffffdef8	140737488346872
+rsi            0x7fffffffdee8	140737488346856
+rdi            0x1	1
+rbp            0x7fffffffde00	0x7fffffffde00
+rsp            0x7fffffffde00	0x7fffffffde00
+r8             0x7ffff7dd4ac0	140737351862976
+r9             0x7ffff7dc9780	140737351817088
+r10            0x32f	815
+r11            0x7ffff76c5280	140737344459392
+r12            0x4005c0	4195776
+r13            0x7fffffffdee0	140737488346848
+r14            0x0	0
+r15            0x0	0
+rip            0x4006ba	0x4006ba <main()+4>
+eflags         0x246	[ PF ZF IF ]
+cs             0x33	51
+ss             0x2b	43
+ds             0x0	0
+es             0x0	0
+fs             0x0	0
+gs             0x0	0
+
+post-prompt
+
+breakpoints-headers
+
+field 0
+Num     
+field 1
+Type           
+field 2
+Disp 
+field 3
+Enb 
+field 4
+Address            
+field 5
+What
+
+breakpoints-table
+
+record
+
+field 0
+2       
+field 1
+breakpoint     
+field 2
+keep 
+field 3
+y   
+field 4
+0x00000000004006c1 
+field 5
+in main() at helloworld.cpp:5
+
+breakpoints-table-end
+
+post-prompt
+Dump of assembler code for function main():
+   0x00000000004006b6 <+0>:	push   %rbp
+   0x00000000004006b7 <+1>:	mov    %rsp,%rbp
+=> 0x00000000004006ba <+4>:	movl   $0x5,-0x8(%rbp)
+   0x00000000004006c1 <+11>:	mov    -0x8(%rbp),%eax
+   0x00000000004006c4 <+14>:	add    $0x6,%eax
+   0x00000000004006c7 <+17>:	mov    %eax,-0x4(%rbp)
+   0x00000000004006ca <+20>:	mov    $0x0,%eax
+   0x00000000004006cf <+25>:	pop    %rbp
+   0x00000000004006d0 <+26>:	retq   
+End of assembler dump.
+
+post-prompt
+
+breakpoints-headers
+
+field 0
+Num     
+field 1
+Type           
+field 2
+Disp 
+field 3
+Enb 
+field 4
+Address            
+field 5
+What
+
+breakpoints-table
+
+record
+
+field 0
+2       
+field 1
+breakpoint     
+field 2
+keep 
+field 3
+y   
+field 4
+0x00000000004006c1 
+field 5
+in main() at helloworld.cpp:5
+
+breakpoints-table-end
+
+post-prompt
+0x7fffffffddfb:	0x00000000
+
+post-prompt
+
+breakpoints-headers
+
+field 0
+Num     
+field 1
+Type           
+field 2
+Disp 
+field 3
+Enb 
+field 4
+Address            
+field 5
+What
+
+breakpoints-table
+
+record
+
+field 0
+2       
+field 1
+breakpoint     
+field 2
+keep 
+field 3
+y   
+field 4
+0x00000000004006c1 
+field 5
+in main() at helloworld.cpp:5
+
+breakpoints-table-end
+
+post-prompt
+0x7fffffffddfc:	0x00000000
+
+post-prompt
+
+breakpoints-headers
+
+field 0
+Num     
+field 1
+Type           
+field 2
+Disp 
+field 3
+Enb 
+field 4
+Address            
+field 5
+What
+
+breakpoints-table
+
+record
+
+field 0
+2       
+field 1
+breakpoint     
+field 2
+keep 
+field 3
+y   
+field 4
+0x00000000004006c1 
+field 5
+in main() at helloworld.cpp:5
+
+breakpoints-table-end
+
+post-prompt
+0x7fffffffddf8:	0x00000000
+
+post-prompt
+
+breakpoints-headers
+
+field 0
+Num     
+field 1
+Type           
+field 2
+Disp 
+field 3
+Enb 
+field 4
+Address            
+field 5
+What
+
+breakpoints-table
+
+record
+
+field 0
+2       
+field 1
+breakpoint     
+field 2
+keep 
+field 3
+y   
+field 4
+0x00000000004006c1 
+field 5
+in main() at helloworld.cpp:5
+
+breakpoints-table-end
+
+post-prompt
+0x7fffffffde00:	0x00400730
+
+post-prompt
+
+breakpoints-headers
+
+field 0
+Num     
+field 1
+Type           
+field 2
+Disp 
+field 3
+Enb 
+field 4
+Address            
+field 5
+What
+
+breakpoints-table
+
+record
+
+field 0
+2       
+field 1
+breakpoint     
+field 2
+keep 
+field 3
+y   
+field 4
+0x00000000004006c1 
+field 5
+in main() at helloworld.cpp:5
+
+breakpoints-table-end
+
+post-prompt
+0x7fffffffddff:	0x40073000
+
+post-prompt
+
+breakpoints-headers
+
+field 0
+Num     
+field 1
+Type           
+field 2
+Disp 
+field 3
+Enb 
+field 4
+Address            
+field 5
+What
+
+breakpoints-table
+
+record
+
+field 0
+2       
+field 1
+breakpoint     
+field 2
+keep 
+field 3
+y   
+field 4
+0x00000000004006c1 
+field 5
+in main() at helloworld.cpp:5
+
+breakpoints-table-end
+
+post-prompt
+0x7fffffffddf8:	0x00000000
+
+post-prompt
+
+breakpoints-headers
+
+field 0
+Num     
+field 1
+Type           
+field 2
+Disp 
+field 3
+Enb 
+field 4
+Address            
+field 5
+What
+
+breakpoints-table
+
+record
+
+field 0
+2       
+field 1
+breakpoint     
+field 2
+keep 
+field 3
+y   
+field 4
+0x00000000004006c1 
+field 5
+in main() at helloworld.cpp:5
+
+breakpoints-table-end
+
+post-prompt
+
+starting
+
+frames-invalid
+
+breakpoints-invalid
+
+breakpoint 2
+
+Breakpoint 2, 
+frame-begin 0 0x4006c1
+
+frame-function-name
+main
+frame-args
+ ()
+frame-source-begin
+ at 
+frame-source-file
+helloworld.cpp
+frame-source-file-end
+:
+frame-source-line
+5
+frame-source-end
+
+
+source /home/znathan/coding/x86/helloworld.cpp:5:48:beg:0x4006c1
+
+frame-end
+
+stopped
+
+post-prompt
+Current source file is helloworld.cpp
+Compilation directory is /home/znathan/coding/x86
+Located in /home/znathan/coding/x86/helloworld.cpp
+Contains 7 lines.
+Source language is c++.
+Producer is GNU C++11 5.4.0 20160609 -mtune=generic -march=x86-64 -g -O0 -std=c++11 -fstack-protector-strong.
+Compiled with DWARF 2 debugging format.
+Does not include preprocessor macro info.
+
+post-prompt
+
+breakpoints-headers
+
+field 0
+Num     
+field 1
+Type           
+field 2
+Disp 
+field 3
+Enb 
+field 4
+Address            
+field 5
+What
+
+breakpoints-table
+
+record
+
+field 0
+2       
+field 1
+breakpoint     
+field 2
+keep 
+field 3
+y   
+field 4
+0x00000000004006c1 
+field 5
+in main() at helloworld.cpp:5
+	breakpoint already hit 1 time
+
+breakpoints-table-end
