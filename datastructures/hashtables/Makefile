@@ -15,6 +15,20 @@ find_symmetrical_pairs_hash: find_symmetrical_pairs_hash.o
 	$(CXX) $(CXXFLAGS) find_symmetrical_pairs_hash.cpp -o find_symmetrical_pairs_hash.exe
 
 find_missing_elements_in_range_hash: find_missing_elements_in_range_hash.o
-	$(CXX) $(CXXFLAGS) ffind_missing_elements_in_range_hash.cpp -o find_missing_elements_in_range_hash.exe
+	$(CXX) $(CXXFLAGS) find_missing_elements_in_range_hash.cpp -o find_missing_elements_in_range_hash.exe
+
+count_pairs_given_sum_hash: count_pairs_given_sum_hash.o
+	$(CXX) $(CXXFLAGS) count_pairs_given_sum_hash.cpp -o count_pairs_given_sum_hash.exe
+
+max_distance_between_two_same: max_distance_between_two_same.o
+	 $(CXX) $(CXXFLAGS) max_distance_between_two_same.cpp -o max_distance_between_two_same.exe
+
+check_if_array_can_be_divided_into_pair_divisible_by_k: check_if_array_can_be_divided_into_pair_divisible_by_k.o
+	 $(CXX) $(CXXFLAGS) check_if_array_can_be_divided_into_pair_divisible_by_k.cpp -o check_if_array_can_be_divided_into_pair_divisible_by_k.
+	 
+find_number_employees_under_every_employee:  find_number_employees_under_every_employee.o
+	$(CXX) $(CXXFLAGS) find_number_employees_under_every_employee.cpp -o find_number_employees_under_every_employee.exe
+
+
 clean:
 	rm *.exe *.o
