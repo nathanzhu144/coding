@@ -11,5 +11,11 @@ stock_span: stock_span.o
 nqueens: nqueens.o
 	$(CXX) $(CXXFLAGS) nqueens.cpp -o nqueens.exe
 
+kruskal: kruskal.o
+	$(CXX) $(CXXFLAGS) kruskal.cpp -o kruskal.exe
+
+backtracking_permutations: backtracking_permutations.o
+	$(CXX) $(CXXFLAGS) backtracking_permutations.cpp -o backtracking_permutations.exe
+	
 clean:
 	rm *.exe *.o
