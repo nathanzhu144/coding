@@ -1,6 +1,9 @@
 /**
  * Nathan Zhu August 2nd, 2018 2:46 am at KFC in Beijing, China.
  * 
+ * https://www.ics.uci.edu/~eppstein/161/960229.html
+ * http://www.cs.umd.edu/~meesh/351/mount/lectures/lect25-longest-common-subseq.pdf
+ * 
  * Finding the longest common subsequence.
  * 
  * A subsequence is as defined. A subsequence is a sequence that appears in the same relative order,
@@ -39,9 +42,6 @@
  *  2. If last characters of substrings do match,
  *     c[i, j] = 1 + c[i - 1, j - 1]
  * 
- * 
- * 
- * 
  * */
 
 #include <vector>
@@ -50,15 +50,59 @@
 
 using namespace std;
 
-int longest_common_subsequence(std::string str1, std::string str2){
-    //Initializes a 2d vector with str2 + 1 rows and str1 + 1 cols, with all cells initialized to 0
-    std::vector<std::vector<int> > matrix(str2.size() + 1, std::vector<int>(str1.size() + 1, 0));
-
-    for
-
-
+int max(int a, int b)
+{
+    if (a > b)
+    {
+        return a;
+    }
+    return b;
 }
 
-int main(){
+int longest_common_subsequence(std::string str1, std::string str2)
+{
+    //Initializes a 2d vector with str1 + 1 rows and str2 + 1 cols, with all cells initialized to 0
+    std::vector<std::vector<int>> matrix(str1.size() + 1, std::vector<int>(str2.size() + 1, 0));
 
+    //note, the strings are 1-indexed. when i or j is equal to 0, it means
+    //an empty string. I treat an index of 1 as the first character of the string.
+    for (unsigned int i = 0; i <= str1.size(); ++i)
+    {
+        for (unsigned int j = 0; j <= str2.size(); ++j)
+        {
+            //Base case, if either string is empty, LCS must be 0
+            if (i == 0 || j == 0)
+            {
+                matrix[i][j] = 0;
+            }
+            //Case 2: last char of substring does match
+            else if(str1[i - 1] == str2[j - 1]){
+                matrix[i][j] = 1 + matrix[i - 1][j - 1];
+            }
+            //Case 1: last char of substring doesn't match
+            else{
+                matrix[i][j] = max(matrix[i - 1][j], matrix[i][j - 1]);
+            }
+        }
+    }
+
+    for (unsigned int i = 0; i <= str1.size(); ++i)
+    {
+        for (unsigned int j = 0; j <= str2.size(); ++j)
+        {
+            std::cout << matrix[i][j] << " ";
+        }
+        std::cout << std::endl;
+    }
+
+    return matrix[str1.size()][str2.size()];
+}
+
+int main()
+{
+    std::cout << longest_common_subsequence("dowg", "sdsogs") << std::endl;
+    std::cout << longest_common_subsequence("ABRACADABRA", "YABBADABBADOO") << std::endl;
+    std::cout << longest_common_subsequence("nematode knowledge", "empty bottle") << std::endl;
+    std::cout << longest_common_subsequence("d", "n") << std::endl;
+    std::cout << longest_common_subsequence("", "n") << std::endl;
 }
