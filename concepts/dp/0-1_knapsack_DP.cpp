@@ -15,8 +15,6 @@
  * We can only choose (1) or not choose (0) each item, and we seek to
  * maximize total profits, while keeping within the weight constraint.
  * 
- * 
- * 
  * //////////////////////////////
  * //      Conceptual          //
  * //////////////////////////////
@@ -63,4 +61,5 @@
  * 
  * 
  * Boundary conditions
+ *
  * */

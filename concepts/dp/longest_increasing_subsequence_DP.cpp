@@ -6,9 +6,9 @@
 #include <vector>
 using namespace std;
 
-int longest_subseq(vector<int> vec_in, int n){
-    unordered_map<int, int> 
-}
+// int longest_subseq(vector<int> vec_in, int n){
+//     unordered_map<int, int> 
+// }
  
 // function that returns the length of the
 // longest increasing subsequence
@@ -43,6 +43,7 @@ int longestSubsequence(int a[], int n)
         // stores the index as 1-index as we need to
         // check for occurrence, hence 0-th index
         // will not be possible to check
+
         mp[a[i]] = i + 1;
  
         // stores the longest length

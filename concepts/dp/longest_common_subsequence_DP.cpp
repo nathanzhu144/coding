@@ -41,7 +41,6 @@
  *     c[i, j] = max(c[i - 1, j], c[i, j - 1])
  *  2. If last characters of substrings do match,
  *     c[i, j] = 1 + c[i - 1, j - 1]
- * 
  * */
 
 #include <vector>

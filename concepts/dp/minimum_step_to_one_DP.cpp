@@ -62,6 +62,7 @@ int min_step_to_one_bottom_up(int num_in){
 int main(){
     std::cout << "Minimum step for 10 is " << min_step_to_one_bottom_up(10) << std::endl;
     std::cout << "Minimum step for 7 is " << min_step_to_one_bottom_up(7) << std::endl;   
+    std::cout << "Minimum step for 12323 is " << min_step_to_one_bottom_up(12323) << std::endl;
 
     return 0;
 }

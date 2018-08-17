@@ -10,5 +10,11 @@ longest_common_subsequence_DP: longest_common_subsequence_DP.o
 minimum_step_to_one_DP: minimum_step_to_one_DP.o
 	$(CXX) $(CXXFLAGS) minimum_step_to_one_DP.cpp -o minimum_step_to_one_DP.exe
 
+word_break_DP: word_break_DP.o
+	$(CXX) $(CXXFLAGS) word_break_DP.cpp -o word_break_DP.exe
+
+longest_palindrome_DP: longest_palindrome_DP.o
+	$(CXX) $(CXXFLAGS) longest_palindrome_DP.cpp -o longest_palindrome_DP.exe
+	
 clean:
 	rm *.exe *.o
