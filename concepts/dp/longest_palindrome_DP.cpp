@@ -22,7 +22,7 @@
 
 using namespace std;
 
-unordered_map<std::pair<int, int>, int> table;
+std::unordered_map<std::pair<int, int>, int> table;
 
 int max(int a, int b)
 {
