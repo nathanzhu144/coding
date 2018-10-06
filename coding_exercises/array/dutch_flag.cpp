@@ -44,6 +44,9 @@ void sort012(vector<int>& vec){
             swap(vec[middle], vec[right]);
             --right;
         }
+        else{
+            
+        }
     }
 }
 
@@ -61,7 +64,7 @@ int main(){
     print_vec(a);
     vector<int> b = {2, 2, 0, 0, 1, 0, 0, 2, 1, 0, 2, 1};
     print_vec(b);
-    sort01(b);
+    sort012(b);
     print_vec(b);
 
 }
