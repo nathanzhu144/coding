@@ -1,5 +1,15 @@
+/**
+ * https://www.geeksforgeeks.org/sliding-window-maximum-maximum-of-all-subarrays-of-size-k/
+ * 
+*/
+
+#include <iostream>
+#include <deque>
+#include <vector>
+
+using namespace std;
 // all subarrays of size k 
-void printKMax(int arr[], int n, int k) 
+void printKMax(vector<int> arr, int n, int k) 
 { 
     // Create a Double Ended Queue, Qi that will store indexes of array elements 
     // The queue will store indexes of useful elements in every window and it will 
@@ -47,9 +57,8 @@ void printKMax(int arr[], int n, int k)
 // Driver program to test above functions 
 int main() 
 { 
-    int arr[] = {12, 1, 78, 90, 57, 89, 56}; 
-    int n = sizeof(arr)/sizeof(arr[0]); 
+    vector<int> arr = {12, 1, 78, 90, 57, 89, 56}; 
     int k = 3; 
-    printKMax(arr, n, k); 
+    printKMax(arr, arr.size(), k); 
     return 0; 
 } 
