@@ -29,6 +29,8 @@ check_if_array_can_be_divided_into_pair_divisible_by_k: check_if_array_can_be_di
 find_number_employees_under_every_employee:  find_number_employees_under_every_employee.o
 	$(CXX) $(CXXFLAGS) find_number_employees_under_every_employee.cpp -o find_number_employees_under_every_employee.exe
 
+num_subarrays_equal_to_k: num_subarrays_equal_to_k.o
+	$(CXX) $(CXXFLAGS) num_subarrays_equal_to_k.cpp -o num_subarrays_equal_to_k.exe
 
 clean:
 	rm *.exe *.o
