@@ -4,14 +4,16 @@
  *  Linked list reverse
  *  https://www.geeksforgeeks.org/reverse-a-linked-list/
  *  
+ *  Good video on simple recursive:
+ *  https://www.youtube.com/watch?v=MRe3UsRadKw
+ *  
  *  Neil and Renying are doing the 484 project 2, and are using a late day,
  *  They do not like 484, I think.
  */
 
+#include <iostream>
+using namespace std;
 
-#include <iostream> 
-using namespace std; 
-  
 /* Link list node */
 struct Node
 {
@@ -28,7 +30,7 @@ struct Node
 
 class LinkedList
 {
-    public: 
+  public:
     Node *head;
 
     LinkedList()
@@ -36,6 +38,11 @@ class LinkedList
         head = nullptr;
     }
 
+    /////////////////////////////////////////////////////////
+    //         These are the interesting functions         //
+    /////////////////////////////////////////////////////////
+
+    //Reverses the linked list iteratively with 3 pointers
     void reverse()
     {
         Node *prev = nullptr;
@@ -53,6 +60,21 @@ class LinkedList
         head = prev;
     }
 
+    //Recursively reverses a linked list
+    void reverse_recusive(Node *node){
+        if(!node) { return; }
+
+        if(!node->next){
+            head = node;
+            return;
+        }
+
+        reverse_recusive(node->next);
+        node->next->next = node;
+        node->next = nullptr;
+    }
+
+    //Prints the linked list
     void print()
     {
         for (Node *i = head; i; i = i->next)
@@ -62,10 +84,58 @@ class LinkedList
         cout << endl;
     }
 
-    void push(int data){
-        Node * temp = new Node(data);
+    //Prints the linked list in reverse
+    void reverse_print(){
+        reverse_print_helper(head);
+        cout << endl;
+    }
+
+    void reverse_print_helper(Node *node){
+        if(!node){ return; }
+
+        reverse_print_helper(node->next);
+
+        cout << node->data << " ";
+    }
+
+    //Adds a datum to front of linked list
+    void push(int data)
+    {
+        Node *temp = new Node(data);
         temp->next = head;
         head = temp;
+    }
+
+    // This function mainly calls reverseUtil()
+    // with prev as NULL
+    void reverse_2(Node **head)
+    {
+        if (!head)
+            return;
+        reverseUtil(*head, NULL, head);
+    }
+
+    // A simple and tail recursive function to reverse
+    // a linked list.  prev is passed as NULL initially.
+    void reverseUtil(Node *curr, Node *prev, Node **head)
+    {
+        /* If last node mark it head*/
+        if (!curr->next)
+        {
+            *head = curr;
+
+            /* Update next to prev node */
+            curr->next = prev;
+            return;
+        }
+
+        /* Save curr->next node for recursive call */
+        Node *next = curr->next;
+
+        /* and update next ..*/
+        curr->next = prev;
+
+        reverseUtil(next, curr, head);
     }
 };
 
@@ -83,9 +153,13 @@ int main()
     //ll.reverse();
     ll.print();
 
-    ll.reverse();
+    cout << "Printing the reverse list\n";
+    ll.reverse_print();
 
+    ll.reverse();
     cout << "\nReversed Linked list \n";
     ll.print();
+
+
     return 0;
 }
