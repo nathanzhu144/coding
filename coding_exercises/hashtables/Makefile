@@ -32,5 +32,8 @@ find_number_employees_under_every_employee:  find_number_employees_under_every_e
 num_subarrays_equal_to_k: num_subarrays_equal_to_k.o
 	$(CXX) $(CXXFLAGS) num_subarrays_equal_to_k.cpp -o num_subarrays_equal_to_k.exe
 
+two_sum: two_sum.o
+	$(CXX) $(CXXFLAGS) two_sum.cpp -o two_sum.exe
+
 clean:
 	rm *.exe *.o
