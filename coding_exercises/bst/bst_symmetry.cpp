@@ -8,13 +8,17 @@ struct Node{
     int data;
     struct Node *left;
     struct Node *right;
-
-    Node(int data)
-    {
-        this->data = data;
-        left = right = NULL;
-    }
 };
+
+// Utility function to create new Node 
+Node *newNode(int data) 
+{ 
+    Node *temp = new Node; 
+    temp->data  = data; 
+    temp->left  = temp->right = NULL; 
+    return (temp); 
+} 
+
 
 void printLevelOrder(Node *root){
 
@@ -31,15 +35,70 @@ void printLevelOrder(Node *root){
         while(size > 0){
             Node *temp = container.front();
             cout << temp->data << " ";
-            container.pop_back();
+            container.pop_front();
 
             if(temp->left){
-                container.push_front(temp->left);
+                container.push_back(temp->left);
             }
             if(temp->right){
-                container.push_front(temp->right);
+                container.push_back(temp->right);
             }
+            --size;
         }
         std::cout << std::endl;
     }
 }
+
+// bool check_symmetry(Node* root){
+//     return check_symmetry_helper(root, root);
+// }
+bool check_symmetry_one(Node *root){
+    //If root is nullptr, is symmetric, return true
+    if(!root) { return true; }
+
+    //If both children are nullptr, return true
+    if(!root->left && !root->right){
+        return true;
+    }
+
+    //If one child, but not both are not nullptr, return false;
+    if(!root->left || !root->right){
+        return false;
+    }
+
+    if(root->left->data != root->right->data){
+        return false;
+    }
+
+    //Check if both left & right subtrees are symmetric
+    return check_symmetry_one(root->left) &&
+           check_symmetry_one(root->right);
+}
+
+// Driver program 
+int main() 
+{ 
+    // Let us construct the Tree shown in the above figure 
+    Node *root        = newNode(1); 
+    root->left        = newNode(2); 
+    root->right       = newNode(2); 
+    root->left->left  = newNode(3); 
+    root->left->right = newNode(4); 
+    root->right->left  = newNode(4); 
+    root->right->right = newNode(3); 
+
+    Node *root2   = NULL;
+
+    Node *root3        = newNode(3);
+    root3->left        = newNode(2); 
+    root3->right       = newNode(2); 
+
+
+
+    printLevelOrder(root);
+    cout << "Symmetry 0 or 1: " << check_symmetry_one(root) << endl; 
+    cout << "Symmetry 0 or 1: " << check_symmetry_one(root2) << endl; 
+    cout << "Symmetry 0 or 1: " << check_symmetry_one(root3) << endl; 
+
+    return 0; 
+} 
