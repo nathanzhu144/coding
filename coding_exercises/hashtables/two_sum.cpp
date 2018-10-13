@@ -15,7 +15,8 @@ vector<int> twoSum(vector<int>& nums, int target) {
         }
         
         for(unsigned int j = 0; j < nums.size(); ++j){
-            if(store.find(target - nums[j]) != store.end()){
+            if(store.find(target - nums[j]) != store.end() &&
+               j != store.find(target - nums[j])->second){
                 vector<int> a;
                 a.push_back(store.find(target - nums[j])->second);
                 a.push_back(j);
