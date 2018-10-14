@@ -15,7 +15,7 @@
  * 
  * */
 
-#include <map>
+#include <unordered_map>
 #include <iostream>
 #include <utility>
 #include <string>
@@ -32,6 +32,7 @@ int max(int a, int b)
     }
     return b;
 }
+
 int L(std::string &string_in, int i, int j)
 {
     //the max palindrome of a 0-length string is 0
@@ -89,7 +90,7 @@ int L(std::string &string_in, int i, int j)
     }
 }
 
-int find_longest_palindrome_subsequence(std::string &string_in)
+int find_longest_palindrome_subsequence(std::string string_in)
 {
     return L(string_in, 0, string_in.length() - 1);
 }
