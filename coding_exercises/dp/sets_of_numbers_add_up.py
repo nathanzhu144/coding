@@ -2,8 +2,21 @@
 # Nathan Zhu
 # Hatcher Library
 #
-# https://www.youtube.com/watch?v=nqlNzOcnCfs
+#  https://www.youtube.com/watch?v=nqlNzOcnCfs
+#
+#  How many sets of number in a list add up to a certain number?
+#
+#  Ex. [1, 2, 3] to make 4, is only one, (1, 3)
+#  
+#  Coin change:
+#  To use a number twice, as in a coin change problem where we can use a 
+#  denomination twice, we only need a slight tweak
+#
+#  Notes:
 # 
+#  Note that there cannot be repeats - as in 
+#  Given a set [1, 2, 3], there are only two ways of making
+#  it, specifically 
 
 
 def dp(arr, total, i, memoization):
@@ -25,10 +38,12 @@ def dp(arr, total, i, memoization):
         sum = dp(arr, total, i - 1, memoization)
     else:
         sum = dp(arr, total, i - 1, memoization) + dp(arr, total - arr[i], i - 1, memoization)
+        ## Note: changing to this would be same problem as coin problem where you can use
+        ##       same denomination twice
+        #sum = dp(arr, total, i - 1, memoization) + dp(arr, total - arr[i], i, memoization)
 
     memoization[key] = sum
     return sum
-    
 
 
 def find_sets_of_num_add_up_to(arr, total):
@@ -40,3 +55,7 @@ if __name__ == "__main__":
     print find_sets_of_num_add_up_to(arr, 1)
     print find_sets_of_num_add_up_to(arr, 3)
     print find_sets_of_num_add_up_to(arr, 13)
+    coin_arr = [1, 2, 3]
+    print find_sets_of_num_add_up_to(coin_arr, 4)
+    n10_Arr = [2, 5, 3, 6]
+    print find_sets_of_num_add_up_to(n10_Arr, 10)
