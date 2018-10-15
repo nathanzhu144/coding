@@ -49,6 +49,19 @@ void printLevelOrder(Node *root){
     }
 }
 
+Node* insert(Node* n, int a){
+    if (n == NULL){ return newNode(a); }
+
+    if (n->data < a){
+        n->right = insert(n->right, a);
+    }
+    else if(n->data > a){
+        n->left = insert(n->left, a);
+    }
+
+    return n;
+}
+
 // bool check_symmetry(Node* root){
 //     return check_symmetry_helper(root, root);
 // }
@@ -87,15 +100,23 @@ int main()
     root->right->left  = newNode(4); 
     root->right->right = newNode(3); 
 
-    Node *root2   = NULL;
-
     Node *root3        = newNode(3);
     root3->left        = newNode(2); 
     root3->right       = newNode(2); 
 
 
+    Node *root2   = NULL;
+    root2 = insert(root2, 3);
+    insert(root2, 8);
+    insert(root2, 10);
+    insert(root2, 15);
+    insert(root2, -1);
+    insert(root2, -2);
+    insert(root2, -7);
+    insert(root2, 12);
 
-    printLevelOrder(root);
+   
+    printLevelOrder(root2);
     cout << "Symmetry 0 or 1: " << check_symmetry_one(root) << endl; 
     cout << "Symmetry 0 or 1: " << check_symmetry_one(root2) << endl; 
     cout << "Symmetry 0 or 1: " << check_symmetry_one(root3) << endl; 
