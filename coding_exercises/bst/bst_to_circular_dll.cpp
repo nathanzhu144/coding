@@ -38,6 +38,9 @@ Node* join(Node* a, Node * b){
     return a;
 }
 
+//Converts leftmost leaf to circular linked list of size 1
+//whose left and right point to itself, and then does this
+//recursively for left, middle, and right
 Node* bst_to_DLL(Node* root){
     if(!root) return root;
 
@@ -106,4 +109,36 @@ Node* insert(Node* n, int a){
     }
 
     return n;
+}
+
+
+int main(){
+    Node *root2   = NULL;
+    root2 = insert(root2, 3);
+    insert(root2, 8);
+    insert(root2, 10);
+    insert(root2, 15);
+    insert(root2, -1);
+    insert(root2, -2);
+    insert(root2, -7);
+    insert(root2, 12);
+
+    root2 = bst_to_DLL(root2);
+
+    Node *first = root2;
+    Node* temp = first;
+
+    while(1){
+        cout << temp->data << " ";
+        temp = temp->right;
+        if(temp == first) break;
+    }
+
+    cout << endl;
+
+    while(1){
+        cout << temp->data << " ";
+        temp = temp->left;
+        if(temp == first) break;
+    }
 }
