@@ -9,5 +9,9 @@ bst_invert: bst_invert.o
 
 bst_to_circular_dll: bst_to_circular_dll.o
 	$(CXX) $(CXXFLAGS) bst_to_circular_dll.cpp -o bst_to_circular_dll.exe
+
+bst_inorder: bst_inorder.o
+	$(CXX) $(CXXFLAGS) bst_inorder.cpp -o bst_inorder.exe
+
 clean:
 	rm *.exe *.o

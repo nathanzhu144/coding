@@ -1,4 +1,60 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <deque>
+#include <iostream>
+#include <stack>
 
+/**
+ *  Nathan Zhu
+ *  October 16th, 2018
+ *  
+ *  Starbucks, State Street 12:15 pm
+ *  
+ *  How to print a binary search tree inorder.
+ */
+
+using namespace std;
+struct Node{
+    int data;
+    struct Node *left;
+    struct Node *right;
+};
+
+/////////////////////////////////////////
+//           Inorder Print             //
+/////////////////////////////////////////
+void in_order_rec(Node* n){
+    if(!n) return;
+
+    in_order_rec(n->left);
+    cout << n->data << " ";
+    in_order_rec(n->right);
+}
+
+void in_order_iterative(Node* n){
+    if(!n) return;
+
+    stack<Node*> tree;
+    Node* current = n;
+
+    while(current || !tree.empty()){
+        //Move as far down and left as we can
+        //until we hit nullptr
+        while(current){
+            tree.push(current);
+            current = current->left;
+        }
+
+        //current must be null at this point
+        current = tree.top();
+        tree.pop();
+
+        cout << current->data << " ";
+
+        //Traverse right subtree
+        current = current->right;
+    }
+}
 
 /////////////////////////////////////////
 //           Helper functions          //
@@ -66,22 +122,9 @@ int main(){
     insert(root2, -7);
     insert(root2, 12);
 
-    root2 = bst_to_DLL(root2);
-
-    Node *first = root2;
-    Node* temp = first;
-
-    while(1){
-        cout << temp->data << " ";
-        temp = temp->right;
-        if(temp == first) break;
-    }
-
+    in_order_iterative(root2);
     cout << endl;
+    in_order_rec(root2);
 
-    while(1){
-        cout << temp->data << " ";
-        temp = temp->left;
-        if(temp == first) break;
-    }
+    return 0;
 }
