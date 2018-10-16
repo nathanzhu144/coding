@@ -21,6 +21,9 @@ struct TreeNode
     TreeNode *right;
 };
 
+///////////////////////////////////////
+//      Inverting a binary tree      //
+///////////////////////////////////////
 
 TreeNode *invertTreeRecursive(TreeNode *root)
 {

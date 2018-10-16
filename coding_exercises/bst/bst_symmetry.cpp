@@ -10,6 +10,34 @@ struct Node{
     struct Node *right;
 };
 
+//////////////////////////////////
+//        Check bst symmtry     //
+//////////////////////////////////
+
+
+//Recursive solution
+
+bool is_mirror(Node *tree1, Node* tree2){
+    if(!tree1 || !tree2) return !tree1 && !tree2;
+
+    return tree1->data == tree2->data &&
+           is_mirror(tree1->left, tree2->right) && 
+           is_mirror(tree1->right, tree2->left);
+}
+
+//left and right subtrees have to be mirror images
+bool is_symmetric(Node* tree){
+    return is_mirror(tree->left, tree->right);
+}
+
+//Iterative Solution
+
+
+///////////////////////////////////
+//      Iterative solution       //
+///////////////////////////////////
+
+
 // Utility function to create new Node 
 Node *newNode(int data) 
 { 
@@ -63,32 +91,6 @@ Node* insert(Node* n, int a){
 }
 
 
-// bool check_symmetry(Node* root){
-//     return check_symmetry_helper(root, root);
-// }
-bool check_symmetry_one(Node *root){
-    //If root is nullptr, is symmetric, return true
-    if(!root) { return true; }
-
-    //If both children are nullptr, return true
-    if(!root->left && !root->right){
-        return true;
-    }
-
-    //If one child, but not both are not nullptr, return false;
-    if(!root->left || !root->right){
-        return false;
-    }
-
-    if(root->left->data != root->right->data){
-        return false;
-    }
-
-    //Check if both left & right subtrees are symmetric
-    return check_symmetry_one(root->left) &&
-           check_symmetry_one(root->right);
-}
-
 // Driver program 
 int main() 
 { 
@@ -117,10 +119,10 @@ int main()
     insert(root2, 12);
 
    
-    printLevelOrder(root2);
-    cout << "Symmetry 0 or 1: " << check_symmetry_one(root) << endl; 
-    cout << "Symmetry 0 or 1: " << check_symmetry_one(root2) << endl; 
-    cout << "Symmetry 0 or 1: " << check_symmetry_one(root3) << endl; 
+    //printLevelOrder(root2);
+    cout << "Symmetry 0 or 1: " << is_symmetric(root) << endl; 
+    cout << "Symmetry 0 or 1: " << is_symmetric(root2) << endl; 
+    cout << "Symmetry 0 or 1: " << is_symmetric(root3) << endl; 
 
     return 0; 
 } 
