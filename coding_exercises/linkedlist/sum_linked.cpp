@@ -1,3 +1,14 @@
+/**
+ * sum_linked.cpp
+ * Nathan Zhu
+ * October 16th, 2018
+ * 
+ *  How do you sum two linked lists together?
+ *  Leetcode medium question.
+ * 
+ *  https://www.geeksforgeeks.org/sum-of-two-linked-lists/
+ * 
+ */
 #include <iostream>
 
 using namespace std;
@@ -11,8 +22,14 @@ struct ListNode
 
 ListNode *insert(ListNode *root, int val);
 
+
+//////////////////////////////////////
+//       Add two linked list        //
+//////////////////////////////////////
+
+//My implementation
 ListNode *addTwoNumbers(ListNode *l1, ListNode *l2)
-{
+{     
     ListNode *a = l1;
     ListNode *b = l2;
     ListNode *returned = NULL;
@@ -77,7 +94,6 @@ ListNode *addTwoNumbers(ListNode *l1, ListNode *l2)
 
     return returned;
 }
-
 
 
 void print(ListNode* n){
