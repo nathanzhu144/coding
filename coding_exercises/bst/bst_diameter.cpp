@@ -1,18 +1,28 @@
+/*
+*   Nathan Zhu
+*   znathan
+*   Wednesday October 17th, 2018  11:39 pm
+*  
+*   https://www.geeksforgeeks.org/diameter-of-a-binary-tree/
+* 
+*   The diameter of a binary search tree is the longest path 
+*   between two leaves.  Note that this longest path does not necessarily
+*   include the root node.
+*
+*   If it does include the root node, 
+*   it is height(node->left) + height(node->right) + 1
+*
+*   If it does not include root node,
+*   it is max(bst_diameter(node->left), bst_diamter(node->right))
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <deque>
 #include <iostream>
 #include <stack>
+#include <algorithm>
 
-/**
- *  Nathan Zhu
- *  October 16th, 2018
- *  
- *  Starbucks, State Street 12:15 pm
- *  
- *  How to print a binary search tree inorder with 
- *  stack and with recursion
- */
 
 using namespace std;
 struct Node{
@@ -21,40 +31,19 @@ struct Node{
     struct Node *right;
 };
 
+
+int height(Node *a);
+
 /////////////////////////////////////////
-//           Inorder Print             //
+//           BST Diameter              //
 /////////////////////////////////////////
-void in_order_rec(Node* n){
-    if(!n) return;
 
-    in_order_rec(n->left);
-    cout << n->data << " ";
-    in_order_rec(n->right);
-}
+//Check notes at top for implement
+int bst_diameter(Node* n){
+    if(!n) return 0;
 
-void in_order_iterative(Node* n){
-    if(!n) return;
-
-    stack<Node*> tree;
-    Node* current = n;
-
-    while(current || !tree.empty()){
-        //Move as far down and left as we can
-        //until we hit nullptr
-        while(current){
-            tree.push(current);
-            current = current->left;
-        }
-
-        //current must be null at this point
-        current = tree.top();
-        tree.pop();
-
-        cout << current->data << " ";
-
-        //Traverse right subtree
-        current = current->right;
-    }
+    return std::max(height(n->left) + height(n->right) + 1, 
+           std::max(bst_diameter(n->left), bst_diameter(n->right)));
 }
 
 /////////////////////////////////////////
@@ -122,10 +111,15 @@ int main(){
     insert(root2, -2);
     insert(root2, -7);
     insert(root2, 12);
+    printLevelOrder(root2);
 
-    in_order_iterative(root2);
-    cout << endl;
-    in_order_rec(root2);
+    cout << "BST diameter root2: " << bst_diameter(root2);
 
     return 0;
+}
+
+int height(Node *a){
+    if (!a) return 0;
+
+    return 1 + max(height(a->left), height(a->right));
 }

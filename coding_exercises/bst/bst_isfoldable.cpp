@@ -2,17 +2,6 @@
 #include <stdlib.h>
 #include <deque>
 #include <iostream>
-#include <stack>
-
-/**
- *  Nathan Zhu
- *  October 16th, 2018
- *  
- *  Starbucks, State Street 12:15 pm
- *  
- *  How to print a binary search tree inorder with 
- *  stack and with recursion
- */
 
 using namespace std;
 struct Node{
@@ -21,45 +10,24 @@ struct Node{
     struct Node *right;
 };
 
-/////////////////////////////////////////
-//           Inorder Print             //
-/////////////////////////////////////////
-void in_order_rec(Node* n){
-    if(!n) return;
+///////////////////////////////////////
+//        Check bst foldability     //
+//////////////////////////////////////
 
-    in_order_rec(n->left);
-    cout << n->data << " ";
-    in_order_rec(n->right);
+
+bool is_foldable(Node *tree1, Node* tree2){
+    //Base case, both trees are empty
+    if (!tree1 || !tree2) { return !tree1 && !tree2; }
+
+    return is_foldable(tree1->left, tree2->right) &&
+           is_foldable(tree1->right, tree2->left);
 }
 
-void in_order_iterative(Node* n){
-    if(!n) return;
+///////////////////////////////////
+//      Utility functions        //
+///////////////////////////////////
 
-    stack<Node*> tree;
-    Node* current = n;
 
-    while(current || !tree.empty()){
-        //Move as far down and left as we can
-        //until we hit nullptr
-        while(current){
-            tree.push(current);
-            current = current->left;
-        }
-
-        //current must be null at this point
-        current = tree.top();
-        tree.pop();
-
-        cout << current->data << " ";
-
-        //Traverse right subtree
-        current = current->right;
-    }
-}
-
-/////////////////////////////////////////
-//           Helper functions          //
-/////////////////////////////////////////
 // Utility function to create new Node 
 Node *newNode(int data) 
 { 
@@ -68,6 +36,7 @@ Node *newNode(int data)
     temp->left  = temp->right = NULL; 
     return (temp); 
 } 
+
 
 void printLevelOrder(Node *root){
 
@@ -112,7 +81,25 @@ Node* insert(Node* n, int a){
 }
 
 
-int main(){
+// Driver program 
+int main() 
+{ 
+    // Let us construct the Tree shown in the above figure 
+    Node *root        = newNode(1); 
+    root->left        = newNode(2); 
+    root->right       = newNode(5); 
+    root->left->left  = newNode(3); 
+    root->left->right = newNode(4); 
+    root->right->left  = newNode(4); 
+    root->right->right = newNode(1); 
+    root->right->right->right = newNode(1); 
+    root->left->left->left = newNode(2); 
+
+    Node *root3        = newNode(3);
+    root3->left        = newNode(2); 
+    root3->right       = newNode(2); 
+
+
     Node *root2   = NULL;
     root2 = insert(root2, 3);
     insert(root2, 8);
@@ -123,9 +110,9 @@ int main(){
     insert(root2, -7);
     insert(root2, 12);
 
-    in_order_iterative(root2);
-    cout << endl;
-    in_order_rec(root2);
+   
+    //printLevelOrder(root2);
+    cout << "Symmetry 0 or 1: " << is_foldable(root->left, root->right) << endl; 
 
-    return 0;
-}
+    return 0; 
+} 
