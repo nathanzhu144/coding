@@ -1,6 +1,9 @@
 CXX = g++
 CXXFLAGS = -g -o0 --std=c++11
 
+bst_sorted_array_bst: bst_sorted_array_bst.o
+	$(CXX) $(CXXFLAGS) bst_sorted_array_bst.cpp -o bst_sorted_array_bst.exe
+	
 bst_symmetry: bst_symmetry.o
 	$(CXX) $(CXXFLAGS) bst_symmetry.cpp -o bst_symmetry.exe
 
@@ -9,7 +12,7 @@ bst_diameter: bst_diameter.o
 
 bst_width: bst_width.o
 	$(CXX) $(CXXFLAGS) bst_width.cpp -o bst_width.exe
-	
+
 bst_invert: bst_invert.o
 	$(CXX) $(CXXFLAGS) bst_invert.cpp -o bst_invert.exe
 

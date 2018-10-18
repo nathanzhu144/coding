@@ -48,11 +48,6 @@ int bst_width(Node *n)
     {
         int tree_width = tree.size();
 
-        // if (tree_width > max_width)
-        // {
-        //     max_width = tree_width;
-        // }
-        //
         max_width = max(max_width, tree_width);
 
         //Pushing next level of nodes down on
