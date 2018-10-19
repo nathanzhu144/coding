@@ -15,7 +15,11 @@ bool word_break(string str, set<string>& dictionary){
 
     bool arr[size];
 
-    for(auto i: arr){ i = 0;}
+    for(auto i: arr){ i = 0; }
+
+    for (int i = 1; i <= size; ++i){
+        
+    }
 
 
 }
