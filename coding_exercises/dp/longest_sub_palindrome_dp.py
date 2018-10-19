@@ -9,16 +9,36 @@
 #
 #
 #  mem is a memoization table
+#
+#  Base off of this...
+#
+#  Nathan Zhu
+#  znathan
+#  August 3rd, 2018 who knows what time, lol, in the middle of the air above Arizona or 
+#                  something.  I took a nap, and then am not sure how long it is until
+#                  we get to San Jose.
+# 
+#  The purpose of this program is to create a DP solution that finds the longest
+#  palindrome that is a subsequence in a string.
+# 
+# 
+#  Problem:
+#     Let X[1...N], N > 1 be the string, and then define
+#     L(i, j) as the length of the longest substring from X[i...j].
+# 
 
 def lps(string, i, j, mem):
     key = (i, j)
 
+    if mem.has_key(key):
+        return mem[key]
 
     # Case 1: Two characters at start and end of the sequence
     #         string[i] ... string[j] have the same char
     if string[i] is string[j]:
         # Case 1A: Palindrome of length 1
-        if i is j:
+        # Why not i is j?
+        if i == j:
             mem[key] = 1
             return 1
         # Case 1B: Two char, Ex. "BB", "$$"
@@ -26,37 +46,15 @@ def lps(string, i, j, mem):
             mem[key] = 2
             return 2
         # Case 1C: More than one apart, Ex. A[BCB]A
-        elif j - i >= 1:
-            # Can find in hash table
-            if mem.has_key((i + 1, j - 1)):
-                mem[key] = 2 + mem[(i + 1, j - 1)]
-                return mem[key]
-            # Cannot find in hash table
-            else:
-                mem[key] = 2 + lps(string, i + 1, j - 1, mem)
-                return mem[key]
+        elif j - i > 1:
+            mem[key] = 2 + lps(string, i + 1, j - 1, mem)
     # Case 2: Two characters at start and end of the sequence
     #         string[i] ... string[j] have diff characters
     else:
-        # Case 2A: Length 1
-        if i is j:
-            mem[key] = 0
-            return 0
-
         # Case 2B: More than length 1
-        leftMin1 = 0
-        rightMin1 = 0
-        if mem.has_key((i, j - 1)):
-            leftMin1 = mem[(i, j - 1)]
-        else:
-            leftMin1 = lps(string, i, j - 1, mem)
-        if mem.has_key((i + 1, j)):
-            rightMin1 = mem[(i + 1, j)]
-        else:
-            rightMin1 = lps(string, i + 1, j, mem)
-
-        mem[key] = max(leftMin1, rightMin1)
-        return mem[key]
+        mem[key] = max(lps(string, i, j - 1, mem), lps(string, i + 1, j, mem))
+    
+    return mem[key]
 
 def longest_sub_palindrome(string):
     mem = dict()
@@ -64,6 +62,8 @@ def longest_sub_palindrome(string):
 
 if __name__ == "__main__":
     print(longest_sub_palindrome("ABCDEEAB"))
+    print(longest_sub_palindrome("bbbab"))
     print(longest_sub_palindrome("GEEKSFORGEEKS"))
     print(longest_sub_palindrome("BBABCBCAB"))
     print(longest_sub_palindrome("BBBANNANNABANNNANANASDASDFASDOREROCKDOGFCOGOGGGGGGASSAEOOEOABCBCAB"))
+    print(longest_sub_palindrome("euazbipzncptldueeuechubrcourfpftcebikrxhybkymimgvldiwqvkszfycvqyvtiwfckexmowcxztkfyzqovbtmzpxojfofbvwnncajvrvdbvjhcrameamcfmcoxryjukhpljwszknhiypvyskmsujkuggpztltpgoczafmfelahqwjbhxtjmebnymdyxoeodqmvkxittxjnlltmoobsgzdfhismogqfpfhvqnxeuosjqqalvwhsidgiavcatjjgeztrjuoixxxoznklcxolgpuktirmduxdywwlbikaqkqajzbsjvdgjcnbtfksqhquiwnwflkldgdrqrnwmshdpykicozfowmumzeuznolmgjlltypyufpzjpuvucmesnnrwppheizkapovoloneaxpfinaontwtdqsdvzmqlgkdxlbeguackbdkftzbnynmcejtwudocemcfnuzbttcoew"))

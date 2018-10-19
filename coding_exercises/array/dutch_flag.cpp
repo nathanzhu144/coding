@@ -26,9 +26,9 @@ void sort01(std::vector<int>& vec){
 }
 
 void sort012(vector<int>& vec){
-    int left = 0;                  //rightmost 0
+    int left = 0;                   //rightmost 0
     int right = vec.size() - 1;     //rightmost 2
-    int middle = 0;                //rightmost 1
+    int middle = 0;                 //rightmost 1
 
     while(middle <= right){
         if(vec[middle] == 0){

@@ -5,6 +5,9 @@
 #
 #  I want to understand the sliding window technique better.  This is a classic
 #  question.
+#
+#  The question is: Given an array and a sum, what is the length of a substring of the
+#                   array that adds up to the sum
 # 
 #  http://blog.gainlo.co/index.php/2016/06/01/subarray-with-given-sum/
 #  http://blog.gainlo.co/index.php/2017/03/03/chapter-3-practice-coding-questions-complete-guide-google-interview-preparation/

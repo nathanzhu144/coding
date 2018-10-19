@@ -1,7 +1,6 @@
 
 
 def find_leaders(arr):
-    numleaders = 0
     leader_list = [arr[-1]]
     max = arr[-1]
 

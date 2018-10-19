@@ -1,5 +1,5 @@
 #  Nathan Zhu
-#  Oct 14th, 2018
+#  Sunday Oct 14th, 2018, 1pm at Foundry Lofts
 #  Rod cutting problem.
 #
 # 
