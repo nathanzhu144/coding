@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <deque>
 #include <iostream>
+#include <queue>
 
 using namespace std;
 struct Node{
@@ -23,6 +24,41 @@ bool is_mirror(Node *tree1, Node* tree2){
     return tree1->data == tree2->data &&
            is_mirror(tree1->left, tree2->right) && 
            is_mirror(tree1->right, tree2->left);
+}
+
+bool check_palindrome(vector<int>& vec){
+    int* first = &vec[0];
+    int* last = &vec[vec.size() - 1];
+
+    while(first <= last){
+        if (*first++ != *last--) return false;
+    }
+
+    return true;
+}
+
+bool is_mirror_iterative(Node* n){
+    if(!n) { return true; }
+
+    queue<Node*> tree;
+    tree.push(n);
+    int level_size = tree.size();
+    
+    while (tree)    while(level_size){
+        int level_size = tree.size();
+        vector<int> level;
+
+        if(n->left){
+            level.push_back(n->left->data);
+            tree.push(n->left);
+        }
+        if(n->right){
+            level.push_back(n->right->data);
+            tree.push(n->right);
+        }
+    }
+
+    return true;
 }
 
 //left and right subtrees have to be mirror images

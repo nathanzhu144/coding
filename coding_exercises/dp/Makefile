@@ -15,6 +15,9 @@ word_break_DP: word_break_DP.o
 
 longest_palindrome_DP: longest_palindrome_DP.o
 	$(CXX) $(CXXFLAGS) longest_palindrome_DP.cpp -o longest_palindrome_DP.exe
+
+word_break_DP1: word_break_DP1.o
+	$(CXX) $(CXXFLAGS) word_break_DP1.cpp -o word_break_DP1.exe
 	
 clean:
 	rm *.exe *.o

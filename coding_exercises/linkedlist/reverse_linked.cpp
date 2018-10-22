@@ -74,16 +74,6 @@ class LinkedList
         node->next = nullptr;
     }
 
-    //Prints the linked list
-    void print()
-    {
-        for (Node *i = head; i; i = i->next)
-        {
-            cout << i->data << " ";
-        }
-        cout << endl;
-    }
-
     //Prints the linked list in reverse
     void reverse_print(){
         reverse_print_helper(head);
@@ -98,12 +88,38 @@ class LinkedList
         cout << node->data << " ";
     }
 
+   
+    //Prints the linked list
+    void print()
+    {
+        for (Node *i = head; i; i = i->next)
+        {
+            cout << i->data << " ";
+        }
+        cout << endl;
+    }
+
     //Adds a datum to front of linked list
     void push(int data)
     {
         Node *temp = new Node(data);
         temp->next = head;
         head = temp;
+    }
+
+    void push_back(int data){
+        Node *temp = new Node(data);
+
+        if(!head){
+            head = temp;
+        }
+        else{
+            Node *last = head;
+            while(last->next){
+                last = last->next;
+            }
+            last->next = temp;
+        }
     }
 };
 

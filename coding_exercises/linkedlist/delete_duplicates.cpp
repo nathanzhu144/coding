@@ -19,8 +19,7 @@ void removeDuplicates(struct Node* head)
     struct Node* next_next;  
     
     /* do nothing if the list is empty */
-    if (current
-     == NULL)  
+    if (current == NULL)  
        return;  
   
     /* Traverse the list till last node */
