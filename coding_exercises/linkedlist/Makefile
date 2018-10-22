@@ -9,6 +9,12 @@ sum_linked: sum_linked.o
 	
 loop_exist_linked: loop_exist_linked.o
 	$(CXX) $(CXXFLAGS) loop_exist_linked.cpp -o loop_exist_linked.exe
+
+shift_linked: shift_linked.o
+	$(CXX) $(CXXFLAGS) shift_linked.cpp -o shift_linked.exe
+
+merge_list: merge_list.o
+	$(CXX) $(CXXFLAGS) merge_list.cpp -o merge_list.exe
 	
 clean:
 	rm *.exe *.o

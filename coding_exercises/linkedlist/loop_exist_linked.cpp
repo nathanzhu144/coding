@@ -4,7 +4,8 @@
  *  Linked list check for loop
  * 
  *  https://www.geeksforgeeks.org/detect-loop-in-a-linked-list/
- *  
+ *  https://www.geeksforgeeks.org/how-does-floyds-slow-and-fast-pointers-approach-work/
+ *  https://www.geeksforgeeks.org/find-length-of-loop-in-linked-list/
  *  Neil and Renying have the first 484 exam today.  I am figuring out how to find a loop in a linked list.
  */
 
@@ -59,6 +60,70 @@ class LinkedList
 
         return false;
     }
+
+    //Faster pointer and slower pointer, will 
+    //meet eventually.
+    bool check_for_loop2(){
+        Node *slow = this->head;
+        Node *fast = this->head;
+
+        while(fast && fast->next){
+            slow = slow->next;
+            fast = fast->next->next;
+
+            if (slow == fast){ return true; }
+        }
+
+        return false;
+    }
+
+    // Gave up on this right now
+    // Shouldn't be too hard with a hash table, but without additional
+    // O(n) memory should be possible
+
+    // bool remove_loop(){
+    //     Node *slow = this->head;
+    //     Node *fast = this->head;
+    //     bool flag = false;
+
+    //     //Finding node in loop
+    //     while(fast != slow && flag){
+    //         flag = true;
+    //         slow = slow->next;
+    //         fast = fast->next->next;
+
+    //         //If no loop, return false
+    //         if(!fast->next) { return false; }
+    //     }
+
+    //     //Counting length of loop
+    //     Node *node_in_loop = slow;
+    //     int loop_length = 0;
+    //     while (slow != node_in_loop){
+    //         slow = slow->next;
+    //         ++loop_length;
+    //     }
+
+    //     //Advancing faster by loop length nodes from head
+    //     Node* slower = this->head;
+    //     Node* faster = this->head;
+    //     for(int i = 0; i < loop_length; ++i){
+    //         faster = faster->next;
+    //     }
+
+    //     //If we start faster pointer by loop length nodes out
+    //     //They will meet at beginning of loop.
+    //     while(faster != slower){
+    //         faster = faster->next;
+    //         slower = slower->next;
+    //     }
+
+    //     faster->next = nullptr;
+
+    //     return true;
+    //}
+
+
 
     int find_loop_length(){
         unordered_map<Node*, int> address;
@@ -120,6 +185,7 @@ int main()
     ll.push_back(85);
     ll.head->next->next->next->next = ll.head->next;
     cout << "This list should have loop, : " << ll.check_for_loop() << endl;
+    cout << "This list should have loop, : " << ll.check_for_loop2() << endl;
     cout << "This list has loop of length: " << ll.find_loop_length() << endl;
 
     //Should make a linked list with loop of length 0
@@ -128,6 +194,7 @@ int main()
     ll2.push(20);
     ll2.head->next = ll2.head;
     cout << "This list should have loop, : " << ll2.check_for_loop() << endl;
+    cout << "This list should have loop, : " << ll2.check_for_loop2() << endl;
     cout << "This list has loop of length: " << ll2.find_loop_length() << endl;
 
     //Should make a linked list without a loop
@@ -137,6 +204,7 @@ int main()
     ll3.push_back(15);
     ll3.push_back(85);
     cout << "This list should NOT have loop, : " << ll3.check_for_loop() << endl;
+    cout << "This list should NOT have loop, : " << ll3.check_for_loop2() << endl;
     cout << "This list has loop of length: " << ll3.find_loop_length() << endl;
 
     return 0;
