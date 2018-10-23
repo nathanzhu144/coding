@@ -15,6 +15,9 @@ shift_linked: shift_linked.o
 
 merge_list: merge_list.o
 	$(CXX) $(CXXFLAGS) merge_list.cpp -o merge_list.exe
-	
+
+rearrange_list: rearrange_list.o
+	$(CXX) $(CXXFLAGS) rearrange_list.cpp -o rearrange_list.exe
+
 clean:
 	rm *.exe *.o

@@ -117,22 +117,53 @@ Node *rearrange(Node *head)
         prev = current;
         current = next;
     }
+
     // 1 -> 2 -> 3 -> NULL   6 -> 5 -> 4 -> NULL
+    //                       ^ new_head
+    new_head = prev;
+
+    // Step 0:
+    // 
+    // 1 -> 2 -> 3 -> NULL   6 -> 5 -> 4 -> NULL
+    // ^first                ^second
+
+    //Step 1:
+    //
+    //      v first_next
+    // 1 -> 2 -> 3 -> NULL  
+    //    /                
+    // 6    5 -> 4 -> NULL
+    //      ^ second_next
+
+    //Step 2:
+    //
+    //      v first_next
+    // 1   2 -> 3 -> NULL  
+    // |  /                
+    // 6   5 -> 4 -> NULL  
+    //     ^second_next
 
     Node *first, *second;
-    first = new_head;
-    second = head;
-    int counter = 0;
+    first = head;
+    second = new_head;
 
-    Node *combined = NULL;
-    while(new_head || head){
-        if (counter % 2 == 1){
-            head->next = first; 
+    while(first && second){
+        Node *first_next = first->next;
+        Node *second_next = second->next;
+
+        //Step 1
+        if(first->next){
+            second->next = first->next;
         }
-        else{
-            counter % 2
-        }
+        //Step 2
+        first->next = second;
+
+        first = first_next;
+        second = second_next;
     }
+    
+
+    return head;
 }
 
 /* Driver program to test above function*/
@@ -140,21 +171,30 @@ int main()
 {
     /* Start with the empty list */
     LinkedList ll;
-    ll.push(20);
-    ll.push(4);
-    ll.push(15);
-    ll.push(85);
-
-    cout << "Given linked list\n";
-    //ll.reverse();
+    ll.push_back(1);
+    ll.push_back(2);
+    ll.push_back(3);
+    ll.push_back(4);
+    ll.push_back(5);
+    ll.push_back(6);
+    ll.push_back(7);
+    cout << "Rearranging list 1" << endl;
+    ll.print();
+    rearrange(ll.head);
     ll.print();
 
-    cout << "Printing the reverse list\n";
-    ll.reverse_print();
 
-    ll.reverse();
-    cout << "\nReversed Linked list \n";
-    ll.print();
+    LinkedList ll2;
+    ll2.push_back(1);
+    ll2.push_back(2);
+    ll2.push_back(3);
+    ll2.push_back(4);
+    ll2.push_back(5);
+    ll2.push_back(6);
+    cout << "Rearranging list 2" << endl;
+    ll2.print();
+    rearrange(ll2.head);
+    ll2.print();
 
     return 0;
 }
