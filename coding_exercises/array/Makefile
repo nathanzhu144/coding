@@ -6,6 +6,9 @@ dutch_flag: dutch_flag.o
 
 sliding_window: sliding_window.o
 	$(CXX) $(CXXFLAGS) sliding_window.cpp -o sliding_window.exe
+
+permutation: permutation.o 
+	$(CXX) $(CXXFLAGS) permutation.cpp -o permutation.exe
 	
 clean:
 	rm *.exe *.o
