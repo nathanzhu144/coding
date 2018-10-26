@@ -1,6 +1,9 @@
 CXX = g++
 CXXFLAGS = -g -o0 --std=c++11
 
+sort_chars_by_frequency:
+	$(CXX) $(CXXFLAGS) sort_chars_by_frequency.cpp -o sort_chars_by_frequency.exe
+	
 strcpy: strcpy.o
 	$(CXX) $(CXXFLAGS) strcpy.cpp -o strcpy.exe
 
