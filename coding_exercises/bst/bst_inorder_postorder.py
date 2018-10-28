@@ -1,7 +1,7 @@
+#  Nathan Zhu
+#  Foundry Lofts 2nd Floor Sunday October 28th, 12:03 am
 #
-#
-#
-# 
+#  https://www.geeksforgeeks.org/tree-traversals-inorder-preorder-and-postorder/
 
 #  Inorder Traversal  [4, 8, 2, 5, 1, 6, 3, 7]
 #  Post Traversal     [8, 4, 5, 2, 6, 7, 3, 1]
@@ -52,6 +52,9 @@ class Node:
         self.right = None
 
 
+#######################################
+#        Interesting Functions        #
+#######################################
 def buildTree(inorder, postorder):
     if not inorder or not postorder:
         return None
@@ -64,6 +67,9 @@ def buildTree(inorder, postorder):
 
     return root
 
+#######################################
+#            Helper  Functions        #
+#######################################
 
 def print_preorder(node):
     if not node:
@@ -80,6 +86,7 @@ def print_postorder(node):
     print_postorder(node.left)
     print_postorder(node.right)
     print(node.val)
+
 
 if __name__ == "__main__":
     print_preorder( buildTree([4,8,2,5,1,6,3,7], [8, 4, 5, 2, 6, 7, 3, 1]))
