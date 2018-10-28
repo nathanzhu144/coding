@@ -9,6 +9,9 @@ sliding_window: sliding_window.o
 
 permutation: permutation.o 
 	$(CXX) $(CXXFLAGS) permutation.cpp -o permutation.exe
+
+count_element_in_sorted: count_element_in_sorted.o
+	$(CXX) $(CXXFLAGS) count_element_in_sorted.cpp -o count_element_in_sorted.exe
 	
 clean:
 	rm *.exe *.o
