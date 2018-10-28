@@ -4,10 +4,7 @@
 #include <iostream>
 
 http://www.fusu.us/2013/06/p2-lowest-common-ancestor-in-binary-tree.html
-https://github.com/hanzichi/leetcode/tree/master/Algorithms/Lowest%20Common%20Ancestor%20of%20a%20Binary%20Tree m,,,,,,,,,,,,,,,mmmm,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,7
-11 x leetcode
-3 hour office 
-Tuesday OCt 23rd
+https://github.com/hanzichi/leetcode/tree/master/Algorithms/Lowest%20Common%20Ancestor%20of%20a%20Binary%20Tree
 
 using namespace std;
 struct Node{
