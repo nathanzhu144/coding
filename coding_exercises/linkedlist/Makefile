@@ -19,5 +19,7 @@ merge_list: merge_list.o
 rearrange_list: rearrange_list.o
 	$(CXX) $(CXXFLAGS) rearrange_list.cpp -o rearrange_list.exe
 
+remove_nth_from_end_list: remove_nth_from_end_list.o
+	$(CXX) $(CXXFLAGS) remove_nth_from_end_list.cpp -o remove_nth_from_end_list.exe
 clean:
 	rm *.exe *.o
