@@ -22,10 +22,8 @@ def threeSum(self, nums):
                 
             if total < 0:
                 left += 1
-                    
             elif total > 0:
                 right -= 1
-                    
             else total == 0:
                 returned.append([nums[i], nums[left], nums[right]])
                                                                 
