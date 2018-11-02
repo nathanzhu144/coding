@@ -1,4 +1,22 @@
+# Nathan Zhu
+# November 1st, 2018
+# 
+# https://leetcode.com/problems/search-insert-position
 #
+# Several things of note in binary search.
+# 
+# 1. IF the element searched for is not found, the LEFT in a binary search
+#    will be the position of the element if it is inserted in.
+#
+#  When finding lower_bound
+#
+# 2. There is a trick to finding first instance of a number in an array.
+#
+#  If number is found, we can save this number...
+#  Then: right = middle - 1;
+#
+#  Eventually, this will exit the while loop with smallest element.
+# 
 
 def binsearch(arr, x):
     left = 0
