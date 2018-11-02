@@ -2,7 +2,9 @@
 #  Nathan Zhu
 #  https://www.geeksforgeeks.org/convert-array-into-zig-zag-fashion/
 #
-#  How to change a number list to a zigzag
+#  How to change a number list to a zigzag.  Key insight here 
+#  is bubblesort
+
 def zigzag(arr):
     for i in range(0, len(arr) - 1):
         if i % 2 is 0:

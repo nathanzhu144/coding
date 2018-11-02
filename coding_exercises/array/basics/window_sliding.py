@@ -2,7 +2,7 @@
 #  Nathan Zhu
 #  9:20 pm Saturday October 6th, 2018
 #  
-#
+#  Window sliding is a key concept for reducing runtime
 
 def find_max_sum_of_subarray(arr, window):
     window_sum = sum(arr[0:window])

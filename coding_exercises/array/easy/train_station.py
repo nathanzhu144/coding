@@ -21,7 +21,7 @@ def min_trains(arrivals, departures):
             j += 1
             num_platforms -= 1
         #next arrival same next depart
-        elif arrivals[i] is departures[j]:
+        elif arrivals[i] == departures[j]:
             i += 1
             j += 1
         

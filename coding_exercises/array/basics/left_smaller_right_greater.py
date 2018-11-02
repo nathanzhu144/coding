@@ -2,6 +2,22 @@
 # Hatcher Library, UM, Oct 7th, 2018
 # 3:34 pm after lunch
 # https://practice.geeksforgeeks.org/problems/unsorted-array/0
+#
+# In an unsorted array of size N, find the first element in the array where 
+# all the left elements are smaller and the right elements to it are greater
+#
+# This can be done in O(N) time.
+#
+# First, we make an array called max_element_left_of_index
+# It measures the largest array element so far in the array
+#
+#                       arr = [3, 4,-1, 2, 5, 9, 0]
+# max_element_left_of_index = [3, 4, 4, 4, 5, 9, 9]
+#
+# Then, we move right to left, storing the current minimum element
+#
+# If an array index i is smaller than the current minium element from
+# right side and is larger than max_element_left_of_index[i], it is true.
 
 def left_smaller_right_larger(arr):
     #checks arr length > 0
