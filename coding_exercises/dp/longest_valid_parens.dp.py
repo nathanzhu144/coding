@@ -1,9 +1,11 @@
 #  Nathan Zhu
 #  7:10 am, Wednesday October 31st.  
 #
+#  https://leetcode.com/problems/longest-valid-parentheses/discuss/14133/My-DP-O(n)-solution-without-using-stack
+#
 #  Never thought that I'd wake up at 4:45 am to do a leetcode DP problem on my 20th Halloween
 #
-#  The idea is simple.
+#  The idea is simple. This is a DP hard problem.  Prob can be solved much easier with a stack
 #
 #  Suppose that index n is the longest valid parens ending at index n, with p(i) giving length of longest parens
 #  ending at this index
