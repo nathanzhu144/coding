@@ -7,6 +7,10 @@
  *  https://www.geeksforgeeks.org/how-does-floyds-slow-and-fast-pointers-approach-work/
  *  https://www.geeksforgeeks.org/find-length-of-loop-in-linked-list/
  *  Neil and Renying have the first 484 exam today.  I am figuring out how to find a loop in a linked list.
+ * 
+ *  1. Reverse second half of linked list.
+ * 
+ *  2. check if 
  */
 
 #include <iostream>

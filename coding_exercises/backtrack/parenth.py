@@ -3,6 +3,9 @@
 #  Generating all pairs of valid parenthesis.  
 # 
 #  Easier than it seems with recursive backtracking.
+#
+#  Basically we check if right < left, for right parens at every stack frame
+# 
 
 def parens_helper(all_perms, string, left, right, n):
     if len(string) == 2 * n:

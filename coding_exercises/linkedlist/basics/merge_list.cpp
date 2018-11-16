@@ -6,6 +6,9 @@
  *  https://www.geeksforgeeks.org/merge-two-sorted-linked-lists/
  * 
  *  Same as mergesort with arrays, but with linked lists.
+ * 
+ *  NOTE, made on Nov 2nd, 2018.  If possible do recursive method.  Much simpler
+ *  and more elegant.
  */
 
 #include <iostream>
@@ -85,6 +88,21 @@ class LinkedList
 /////////////////////////////////////////////////////////
 //         These are the interesting functions         //
 /////////////////////////////////////////////////////////
+
+//MUCH SIMPLER
+Node *rec_merge(Node *a, Node *b){
+    if(!a) { return b; }
+    if(!b) { return a; }
+
+    if(a->data < b->data){
+        a->next = rec_merge(a->next, b);
+        return a;
+    }
+    else{
+        b->next = rec_merge(a, b->next);
+        return b;
+    }
+}
 
 Node *merge(Node* a, Node* b)
 {
@@ -192,6 +210,24 @@ int main()
     cout << "The merged result is" << endl;
     Node *merged = merge(ll.head, ll2.head);
     print(merged);
+    cout << endl;
+
+    LinkedList ll3;
+    ll3.push_back(1);
+    ll3.push_back(6);
+    ll3.push_back(6);
+    ll3.push_back(8);
+    ll3.push_back(9);
+    ll3.push_back(10);
+    ll3.push_back(11);
+    ll3.push_back(12);
+    ll3.push_back(13);
+    ll3.push_back(17);
+    ll3.push_back(19);
+    ll3.push_back(20);
+    Node *next_merged = rec_merge(ll3.head, merged);
+    cout << "We merge again" << endl;
+    print(next_merged);
 
     return 0;
 }

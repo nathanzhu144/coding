@@ -1,6 +1,15 @@
 #  Nathan Zhu
 #  October 2nd, 2018
 #
+#  
+#  How to implement std::lower_bound. - Also, lower_bound
+#  returns the insertion index in a sorted array if the element
+#  doesn't exist in the array.
+#
+#  YOU CAN RETURN SIZE OF ARRAY, SO DO NOT START
+#  RIGHT AT LEN(ARR) - 1, if target is bigger than all
+#  elements in arr
+#
 #  Figuring out std::lower_bound at 12:26 am, Foundry Lofts
 # 
 #  Note that lower_bound is a binary search that returns the first 
@@ -9,7 +18,7 @@
 #  So, lower_bound(5)...
 #          
 #  [1   2   3   3   3   6   7]
-#                   ^
+#                       ^
 #
 #  lower_bound(3)
 #  [1   2   3   3   3   6   7]

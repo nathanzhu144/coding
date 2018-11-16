@@ -1,3 +1,6 @@
+
+
+
 def flowerBouquets(p, q, s):
     def helper(p, q, s, i, mem):
         key = i
@@ -19,3 +22,6 @@ def flowerBouquets(p, q, s):
         return mem[key]
     
     return helper(p, q, s, len(s) - 1, {})
+
+if __name__ == "__main__":
+    flowerBouquets(3, 3, "100011")

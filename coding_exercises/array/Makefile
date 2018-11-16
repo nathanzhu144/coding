@@ -13,5 +13,8 @@ permutation: permutation.o
 count_element_in_sorted: count_element_in_sorted.o
 	$(CXX) $(CXXFLAGS) count_element_in_sorted.cpp -o count_element_in_sorted.exe
 	
+longest_cons: longest_cons.o
+	$(CXX) $(CXXFLAGS) longest_cons.cpp -o longest_cons.exe
+	
 clean:
 	rm *.exe *.o
